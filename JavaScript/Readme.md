@@ -105,3 +105,28 @@ test(1, function () {
   console.log("콜백 함수가 실행됩니다.");
 });
 ```
+
+### 프론트앤드 사용
+
+간단한 버튼 클릭 만들어보기
+
+```html
+<div id="num"></div>
+<button id="plus">증가</button>
+<script>
+  var num = 1;
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#num").innerHTML = num;
+  });
+  document.querySelector("#plus").addEventListener("click", function () {
+    num++;
+    document.querySelector("#num").innerHTML = num;
+  });
+</script>
+```
+
+### jQuery
+
+자바 스크립트에서 점유율이 아직 높긴 함(Recat에 비해)
+Ajax등 남이 짜는 코드를 조금은 알아보기 힘든 경우가 존재함
+자바 스크립트의 관점에서 jQuery가 왜 유명해 졌는지에 대해 알아봄

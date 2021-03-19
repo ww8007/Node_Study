@@ -9,17 +9,18 @@
 </head>
 
 <body>
+    숫자 :
+    <div id="num"></div>
+    <button id="plus">증가</button>
     <script>
-        function ex_cl() {
-            var num = 0;
-            return function() {
-                num++;
-                console.log(num);
-            };
-        }
-        var test = ex_cl();
-        test();
-        test();
+        var num = 1;
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector("#num").innerHTML = num;
+        });
+        document.querySelector("#plus").addEventListener("click", function() {
+            num++;
+            document.querySelector("#num").innerHTML = num;
+        });
     </script>
 </body>
 
