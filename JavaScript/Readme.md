@@ -81,3 +81,27 @@ a.print();
 ```javascript
 console.log(typeof(보고싶은 내용))
 ```
+
+### 조건문
+
+- if , swtich 문 존재
+  많이 한 내용이므로 스킵
+
+### 콜백 함수 및 클로저
+
+함수 안 인자를 함수로 받는 경우가 존재
+익명 함수
+
+- 클로저의 사용 용도
+  페이지네이션, 함수를 사용하는데 공간이 필요하다고 판단이 되면 사용하면 된다.
+  다른 사람이 어떤 경우에 사용했는지에 대해서 조금 더 알아보고 사용하면 된다.
+
+```javascript
+function test(num, callback) {
+  console.log(num);
+  callback();
+}
+test(1, function () {
+  console.log("콜백 함수가 실행됩니다.");
+});
+```

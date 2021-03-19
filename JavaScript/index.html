@@ -10,14 +10,16 @@
 
 <body>
     <script>
-        var a = {
-            a: 110,
-            b: "hello",
-            c: function() {
-                console.log("gggg");
-            },
-        };
-        console.log(a.a);
+        function ex_cl() {
+            var num = 0;
+            return function() {
+                num++;
+                console.log(num);
+            };
+        }
+        var test = ex_cl();
+        test();
+        test();
     </script>
 </body>
 
