@@ -130,3 +130,49 @@ test(1, function () {
 자바 스크립트에서 점유율이 아직 높긴 함(Recat에 비해)
 Ajax등 남이 짜는 코드를 조금은 알아보기 힘든 경우가 존재함
 자바 스크립트의 관점에서 jQuery가 왜 유명해 졌는지에 대해 알아봄
+
+### es6
+
+자바스크립트 es5에서 좀 더 표준화 시키고 사용자가 더 사용하기 쉽게 만들어진 것 이라고 생각하면 됨
+
+하위 브라우저의 경우 babel을 사용하여서 올릴 수 있다.
+[babel](https://babeljs.io/)
+
+- class 문법
+
+```html
+<script>
+  class Car {
+    constructor(a, b) {
+      this.name = a;
+      this.color = b;
+    }
+    move() {
+      console.log(this.name + "차이고" + this.color + "색 입니다.");
+    }
+  }
+  var a = new Car("현대", "노란");
+  a.move();
+  var b = new Car("기아", "빨강");
+  b.move();
+</script>
+```
+
+- let, const
+
+변경 가능과 변경 할 수 없는 차이
+
+- 화살표 문법
+
+- spread 연산자
+
+```js
+const arr1 = [1, 2];
+const arr2 = [3, 4, 5];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3); // 인자를 가변적으로 만들 때 좋음
+function abc(a, ...b) {
+  console.log(b[0]);
+}
+abc("nodejs", "hello", 1);
+```
