@@ -47,3 +47,54 @@ const Myvar = require("./myvar");
 const setVar = new Myvar();
 console.log(setVar.name);
 ```
+
+### npm
+
+[npm](https://www.npmjs.com/)
+
+1. npm init
+
+2. npm install express
+3. npm install uuid4
+
+- 경로를 입력하는 것은 내가 만든 모듈을 사용
+- 내장 모듈의 경우 경로 설정 안해도 됨
+
+> package.json
+
+    dependencies 경우 설치된 모듈에 대한 나열이 되어있음
+    명시가 되어 있으므로 node_modules를 제외하고 git이나 전송을 해도 무관함
+
+- npm update의 경우 update를 지원해 준다
+
+> package-lock.json
+
+    라이브러리가 공통으로 걸리는 경우 각각의 프레임워크 별로 하위에 참조하는 버전을 다르게 함
+    - 모듈충돌을 방지한다고 생각하면 됨
+
+- npm이라는 명령을 만들고 싶은 경우
+
+package.json에 script부분에 추가를 시켜주면 된다.
+
+- start의 경우는 npm start로 바로 가능
+- dev의 경우는 npm run dev로 설정해야 함
+
+```json
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "node online",
+  "main": "index.js",
+  // 이렇게 추가하여서 사용한다.
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "author": "ww8007",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uuid4": "^2.0.2"
+  }
+}
+```
