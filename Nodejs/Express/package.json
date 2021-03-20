@@ -4,7 +4,8 @@
     "description": "### 왜 사용 하는가",
     "main": "index_ex.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "nodemon app.js",
+        "dev": "nodemon app.js"
     },
     "keywords": [],
     "author": "",
