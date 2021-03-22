@@ -56,3 +56,18 @@ npm install nodemon
 - script를 통한 자동화
 
 npm start, npm run dev
+
+### nodemon
+
+npm install -g nodemon
+
+변경사항을 바로 저장을 해줘서 바로 적용점을 잡을 수 있음
+
+- 다른 서버가 실행중 일 경우
+  lsof -i :3000
+  kill -9 26744
+
+npm init -y
+
+- npx nomdemon inex.js
+  nodemon이 설치되어 있지 않더라도 바로 설치를 시켜줘서 오류를 없도록 만들어준다.

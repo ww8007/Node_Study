@@ -4,7 +4,7 @@
     "description": "### 왜 사용 하는가",
     "main": "index_ex.js",
     "scripts": {
-        "start": "nodemon app.js",
+        "start": "npx nodemon app.js",
         "dev": "nodemon app.js"
     },
     "keywords": [],
