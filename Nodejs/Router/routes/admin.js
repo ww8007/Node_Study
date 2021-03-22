@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/products", (req, res) => {
-    res.send("admin 이후 url");
+    res.send("admin 이후 products");
 });
 
 module.exports = router;

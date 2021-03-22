@@ -78,3 +78,15 @@ url을 추가하는 방법 중 하나
 
 GET /admin
 GET /admin/products
+
+모듈별로 분리해서 작성하는게 좋음
+
+routes 폴더를 따로 가져와서 사용한다.
+
+- 모듈을 만들어서 사용한다고 생각하면됨
+
+GET/ contacts
+GET/ contacts/list
+
+- 새로 모듈을 내보내 줄 때의 주의점
+  router의 모듈로 exports를 해줘야지 오류가 생기지 않는다.
