@@ -71,3 +71,10 @@ npm init -y
 
 - npx nomdemon inex.js
   nodemon이 설치되어 있지 않더라도 바로 설치를 시켜줘서 오류를 없도록 만들어준다.
+
+### Routing
+
+url을 추가하는 방법 중 하나
+
+GET /admin
+GET /admin/products
