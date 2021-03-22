@@ -158,3 +158,19 @@ function testMiddleware2(req, res, next) {
   next();
 }
 ```
+
+### form body parser
+
+작성하기 나오면 나오는 template 작성하여서 보여주기
+
+body parser 또한 middleware
+
+form action을 여기서 사용해서 사용
+
+form을 비워두면 post로 날아가게 됨 -> 리엑트와 다른 점
+
+- 변수로 받아서 날리는 법
+  req.body로 날리면 json 형식으로 날아가게 된다.
+
+* REST API nodejs 서버 개발자
+  통신 규약을 맞춰서 보내주는 것이 좋음
