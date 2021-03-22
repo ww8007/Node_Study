@@ -20,6 +20,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/uploads", express.static("uploads"));
 
+app.use((req, res, next) => {
+  app.locals.isLoin = true;
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("hello express");
 });

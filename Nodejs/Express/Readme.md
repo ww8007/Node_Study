@@ -187,3 +187,14 @@ form을 비워두면 post로 날아가게 됨 -> 리엑트와 다른 점
 ```js
 app.use("/uploads", express.static("uploads"));
 ```
+
+### Global view variable
+
+간단하게 로그인과 로그아웃 같은 느낌을 알아주면 됨
+
+template에서만 사용한 global 변수를 설정하면 됨
+
+- app.locals.사용하고싶은 변수
+  이러면 전역 변수로 설정이 된다.
+
+*
