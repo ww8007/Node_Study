@@ -90,3 +90,42 @@ GET/ contacts/list
 
 - 새로 모듈을 내보내 줄 때의 주의점
   router의 모듈로 exports를 해줘야지 오류가 생기지 않는다.
+
+### View Engine - Nunjucks
+
+제품 정보들을 다 뿌려주는
+python jango jinga
+
+npm install nunjucks
+
+1. Nunjucks setting
+   app.js에서 module 불러옴
+
+GET /admin/products
+
+2. nunjucks.configure("template")
+   nunjucks를 사용하고 싶은 폴더를 지정하여서 설정해준다.
+
+   - autoscape : js가 그대로 노출되는 것을 방지(태그 걸러줌)
+   - express : 내가 사용하는 root js 설정
+
+3. template을 만들어줌
+4. products.html 생성 후 받을 내용 작성
+   - 하나의 템플릿 당 하나의 내용밖에 받지 못하니 유의
+5. root로 사용하는 js에 get template 만들고 불러옴
+
+### pacakege-lock.json
+
+express - bodyparser 1.2
+
+nunjucks - bodyparser 2.0
+
+이렇게 두개의 버전이 다를 경우의 오류를 해결 할 수 있도록 한다.
+
+- 어떤 버전에서의 최적화가 더 옳은지에 대한 판단을 하여서 이에 대한 오류를 안생기도록 하는 것이 목적
+
+### template 상속
+
+기본 틀을 만들어두고 사용한다고 생각하면 됨
+
+autoescape
