@@ -124,8 +124,37 @@ nunjucks - bodyparser 2.0
 
 - 어떤 버전에서의 최적화가 더 옳은지에 대한 판단을 하여서 이에 대한 오류를 안생기도록 하는 것이 목적
 
-### template 상속
-
 기본 틀을 만들어두고 사용한다고 생각하면 됨
 
-autoescape
+- autoescape
+  cross site 공격을 막도록 html테그가 동작하지 않도록 함
+
+base.html을 생성을 하여서 extends를 사용하여서 사용 할 때 마다 불러오면 된다.
+
+### 미들웨어
+
+중간 요청을 가로채는 느낌이라고 생각하면 됨
+
+npm install morgan
+
+미들웨어를 생성해서 중간으로 넘겨줌
+
+- 실무에서의 사용
+  - 로그인을 확인하여
+    -> 로그인창 or 보여주고 싶은 페이지
+
+app.use 또한 미들웨어라고 보면 된다.
+app.use로 미들웨어를 작성할 수 있다.
+로깅을 하거나 로그인 처리를 할 때 많이 사용함
+
+```js
+function testMiddleware(req, res, next) {
+  console.log("첫 번째 미들웨어");
+  next();
+}
+
+function testMiddleware2(req, res, next) {
+  console.log("두 번째 미들웨어");
+  next();
+}
+```

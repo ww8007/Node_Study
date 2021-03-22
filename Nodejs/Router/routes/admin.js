@@ -1,7 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
+function testMiddleware(req, res, next) {
+    console.log("첫 번째 미들웨어");
+    next();
+}
+
+function testMiddleware2(req, res, next) {
+    console.log("두 번째 미들웨어");
+    next();
+}
+
+router.get("/", testMiddleware, testMiddleware2, (req, res) => {
     res.send("admin 이후 url");
 });
 
