@@ -204,3 +204,19 @@ template에서만 사용한 global 변수를 설정하면 됨
 400 : 페이지에러
 
 500 : 변수가 잘못된어잇거나
+
+### Nunjucks Macro
+
+상단 메뉴 구성 : 활성화
+
+- 내꺼 error : html 주석이 안먹음 왜 이런지 모르겟음
+
+* li class = "active" 통해서 active 시킴
+
+* app.locals.req_path = req.path;
+  req에서 현재 url을 보여주는 변수
+
+* <li {% if req_path = '/admin/products' %}>
+    이렇게 하나당 if를 통해서 걸러줄 수 있지만 엄청 나게 많아진다면 메크로기능을 사용하는 것이 좋음
+
+* 리액트의 기능과 비슷하다고 생각
