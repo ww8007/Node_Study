@@ -220,3 +220,20 @@ template에서만 사용한 global 변수를 설정하면 됨
     이렇게 하나당 if를 통해서 걸러줄 수 있지만 엄청 나게 많아진다면 메크로기능을 사용하는 것이 좋음
 
 * 리액트의 기능과 비슷하다고 생각
+
+### Express 권장구조
+
+폴더 구조를 맞추는 법
+관심사가 한군데 뭉쳐잇음
+
+- server.js에 서버를 띄우는 부분만
+
+app.js express 관련 셋팅 : locals, controler, routing,template
+
+- 구분이 조금 더 편하도록 함
+
+- 컨트롤러를 한번에 불러오도록 수정
+
+* controllers/index 모든 폴더
+* controllers/admin/index (admin url + 미들웨어)
+* controllers/adimin/admin.ctrl.js (컨트롤러 역할)
