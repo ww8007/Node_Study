@@ -237,3 +237,6 @@ app.js express 관련 셋팅 : locals, controler, routing,template
 * controllers/index 모든 폴더
 * controllers/admin/index (admin url + 미들웨어)
 * controllers/adimin/admin.ctrl.js (컨트롤러 역할)
+
+* 500번 error 보는 법
+  this.을 없애면 생기게 된다.
