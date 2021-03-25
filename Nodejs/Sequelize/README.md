@@ -54,3 +54,14 @@ db를 가져와서 설정해줌
 
 - env중요한것
   .env의 끝에 공백이 있으면 오류가 생기게 된다. 유의
+
+### 모델 작성
+
+models index.js 싱크를 하는 역할
+제외한 product.js 입력 수정 crud 가능
+
+sql -> create table
+
+create table Products
+
+id: primaryKey, autoIncrement
