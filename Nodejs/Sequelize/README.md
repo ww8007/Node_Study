@@ -25,3 +25,32 @@ root pw 입력
   ALTER user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ehdgus123!'
 
 ### DB접속
+
+npm install mysql2
+npm install sequelize@4.42.0
+
+- .env의 설정 입력
+  - DATABASE = "exercise"
+  - DB_USER = "root"
+  - DB_PASSWORD = "ehdgus123!"
+  - DB_HOST = "localhost"
+
+.env 의 내용들을 접근가능하게 해준다.
+
+index.js를 제외하고 나머지 모든 파일 싱크를 해주는 파일
+
+```js
+fs.readdirSync(__dirname)
+  .filter((file) => {
+    return file.indexOf(".js") && file !== "index.js";
+  })
+  .forEach((file) => {
+    var model = sequelize.import(path.join(__dirname, file));
+    db[model.name] = model;
+  });
+```
+
+db를 가져와서 설정해줌
+
+- env중요한것
+  .env의 끝에 공백이 있으면 오류가 생기게 된다. 유의
