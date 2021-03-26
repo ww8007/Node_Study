@@ -95,3 +95,11 @@ nunjucks 반복문 뿌려줌
   endfor를 사용하여서 for문을 끝내는 것 잊지 말기
 
 * key , value 값 일치 하면 하나만 적어줘도 괜찮음
+
+### 상세페이지 보기
+
+링크를 걸어서 detail과 delete로 가는 점은 react와 동일하다.
+
+/:id 하는 것은 react router의 기능과 동일하게 변수로 만들어서 가져옴
+
+detail : findPk 같은 것 있지만 하나만 찾아올 수 있도록 만들어줄 수 있음
