@@ -103,3 +103,57 @@ nunjucks 반복문 뿌려줌
 /:id 하는 것은 react router의 기능과 동일하게 변수로 만들어서 가져옴
 
 detail : findPk 같은 것 있지만 하나만 찾아올 수 있도록 만들어줄 수 있음
+
+### Moment.js 적용
+
+Sequlize에서 메소드를 하나 추가하는 것과 같음
+
+js 날짜를 개선하고 싶은 경우
+
+- 년 월 일을 표현하고 싶은 경우
+  보통의 경우에는 년월일을 설정하여서 따로 설정이 가능함
+
+* 위의 문제점은 소스가 더러워지게 됨
+  함수나 소스를 추가할 수 있음
+
+[momentjs](https://momentjs.com/)
+
+npm install moment
+
+const moment = requrie('moment')
+
+Produc.prototype -> 함수를 추가하는 것
+
+- 년, 월, 일로 표현해 주고 싶은 경우
+  moment(data).formant('YYYY-MM-DD')
+
+- Products.prototype.dateFormat = (date) =>
+  moment(date).format("YYYY년 MM월 DD일");
+
+* YYYY MM DD 형식만 지켜 준다면 양식을 마음대로 만들 수 있음
+
+* 바로 return이 되는 값은 {}를 사용하지 않고 return을 바로 해주면 됨
+
+### Prototype 설명
+
+prototype으로 함수를 추가할 수 있음
+
+- html 안에 함수를 작성하는 것 보다 prototype으로 함수를 생성 하는 방법을 더 사용을 하야함
+
+```js
+fucntion abc(){
+    this.name = "안녕";
+    this.clolor= "red";
+}
+
+abc.prototype.logging = function() {
+    conosole.log(this.color)
+}
+
+var log = new abc();
+
+log.logging() 가능하게 됨
+
+class abc() {
+}
+```
