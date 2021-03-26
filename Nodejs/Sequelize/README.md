@@ -183,3 +183,12 @@ exports.get_products_edit = (req, res) => {
 * html부분에 value값을 추가하여서 기존의 데이터를 불러올 수 있도록 하게 한다.
 
 * 지금까지 해보면서 느낀점은 지금까지 해온 것들이 react에서의 내용과 동일하다는 점 이다. 아직은 잘 모르겠다.
+
+* sql where 조건
+  ```javascript
+  {
+    where: {
+      id: req.params.id;
+    }
+  }
+  ```
