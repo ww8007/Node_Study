@@ -196,3 +196,41 @@ exports.get_products_edit = (req, res) => {
 ### DB 삭제하기
 
 query문 공부해보는 것이 좋음
+
+# Promise
+
+### 문제점
+
+.then으로 계속 들어가게 되면 코드가 너무 길이지게 되고 분기가 생기게 된다.
+이러한 경우는 너무 비효율적임
+
+- 위와 같은 경우를 callbackhell이라고 부름
+
+-> 단계적으로 소스가 실행되게 하고 싶음
+
+### Promise 문법 알아보기
+
+1. resolve, reject를 인자로 가지는 함수를 만든다.
+1. 원하는 시점을 resolove로 받아옴
+
+- 실행 보장을 받는 것을 resolve로 받아옴
+
+* js 단일로 실행하고 싶다면 -> node make_promises.js
+
+```javascript
+const aa = new Promise((reslove, reject) => {
+  reslove(console.log("Promise complete"));
+});
+
+aa.then(() => {
+  console.log("프라미스 실행 완료");
+});
+```
+
+- resolve안에 변수를 넣어주면 .then 문법에서 result를 변수로 받아올 수 있게 할 수 있음
+
+* 1초 뒤에 실행하고 싶은 경우
+  setTimeout(()=>{},1000)이렇게 사용하여서 사용할 수 있다.
+
+* 에러를 표시하고 싶은 경우는
+  reject를 사용하여서 에러를 던질 수 있음
