@@ -192,3 +192,7 @@ exports.get_products_edit = (req, res) => {
     }
   }
   ```
+
+### DB 삭제하기
+
+query문 공부해보는 것이 좋음
