@@ -22,7 +22,7 @@ root pw 입력
 - create database exercise
 
 * 비밀번호 설정
-  ALTER user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ehdgus123!'
+  ALTER user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Ehdgus123!'
 
 ### DB접속
 
@@ -65,3 +65,10 @@ sql -> create table
 create table Products
 
 id: primaryKey, autoIncrement
+
+GET /admin/products/write
+
+### DB 작성
+
+.then 구문을 이용한 res.redirect("/admin/products")로 이동
+변수형을 맞춰서 req.body.사용할 구문 사용
