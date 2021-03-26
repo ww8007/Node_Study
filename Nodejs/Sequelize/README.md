@@ -157,3 +157,29 @@ log.logging() 가능하게 됨
 class abc() {
 }
 ```
+
+### DB 수정
+
+Update와 같음
+
+GET /admin/products/edit/:id
+
+Post /admin/products/eidt/:id
+
+- 함수를 생성하여 내보내기 admin/index.js에서 사용
+
+```javascript
+exports.get_products_edit = (req, res) => {
+  //기존에 폼에 value안에 값을 셋팅하기 위해 만든다.
+  models.Products.findByPk(req.params.id).then((product) => {
+    res.render("admin/write.html", { product: product });
+  });
+};
+```
+
+- 만들었던 form을 재활용하여서 사용하게 된다.
+  -> 여기서도 value와 key값이 동일하므로 따로 적어주지 않아도됨
+
+* html부분에 value값을 추가하여서 기존의 데이터를 불러올 수 있도록 하게 한다.
+
+* 지금까지 해보면서 느낀점은 지금까지 해온 것들이 react에서의 내용과 동일하다는 점 이다. 아직은 잘 모르겠다.
