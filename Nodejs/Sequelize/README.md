@@ -82,3 +82,16 @@ req.body가 필드가 맞춰서 들어가므로 바로
 models.Products.create(req.body)로 이용해도좋다
 
 비동기적 처리가 일어나므로 .then 문법을 사용해아함
+
+### DB 조회
+
+sequlize에서 거의 모든 것을 해ㅕㄹ
+
+nunjucks 반복문 뿌려줌
+
+- {%for proudct in product%}
+
+- {%endfor%}
+  endfor를 사용하여서 for문을 끝내는 것 잊지 말기
+
+* key , value 값 일치 하면 하나만 적어줘도 괜찮음
