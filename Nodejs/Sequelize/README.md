@@ -266,3 +266,29 @@ Promise.all([p1, p2])
 ```
 
 ### async await
+
+- template을 넘길때는 dataValue로 값을 받아와야 한다.
+  아니면 받아와 지지 않음
+
+* try catch 구문을 이용하여서 작성하도록 한다.
+
+async await으로 받아오고 싶은 값을 변수에 할당 한 뒤
+에러를 잡고 싶다면 try catch 구문을 통해서 잡으면 된다.
+
+- await은 무조건 async와 같이 사용하여야 한다.
+
+```javascript
+exports.post_products_write = async (req, res) => {
+  try {
+    await models.Products.create(req.body);
+    res.redirect("/admin/products");
+  } catch (e) {
+    console.log(e);
+  }
+};
+```
+
+- req.body console.log찍는 이유
+  같은 구문을 사용한다면 최적화가 가능해진다.
+
+프로그래머가 실행 순서를 보장받을 수 있기 때문에 사용하는 것 이라고 생각하면 됨
