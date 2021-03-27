@@ -234,3 +234,33 @@ aa.then(() => {
 
 * 에러를 표시하고 싶은 경우는
   reject를 사용하여서 에러를 던질 수 있음
+  catch로 에러를 잡을 수 있음
+
+### Promise Chaining Promise all
+
+1초 뒤에 찍고 싶으면 return값으로 줘서 한다.
+
+- 이렇게 chaining 방식으로 할 수도 있다.
+
+```javascript
+p1.then((result1) => {
+  console.log("p1 = " + result1.p1_text);
+  return p2;
+}).then((result2) => {
+  console.log("p2 = " + result2.p2_text);
+});
+```
+
+- 배열을 이용해서 Promise.all([배열])을 통해서 동시에 처리 가능
+  최종 끝나는 시간은 보장이 되지만 각각 실행되는 것은 아님
+
+```javascript
+Promise.all([p1, p2])
+  .then((result) => {
+    console.log("p1=" + result[0].p1_text);
+    console.log("p2=" + result[1].p2_text);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```

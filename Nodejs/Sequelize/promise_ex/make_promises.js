@@ -6,6 +6,10 @@ const wait1seconds = new Promise((reslove, reject) => {
   //   reslove("promise 123");
 });
 
-wait1seconds.then((result) => {
-  console.log("이행 완료");
-});
+wait1seconds
+  .then((result) => {
+    console.log("이행 완료");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
