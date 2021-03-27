@@ -264,3 +264,5 @@ Promise.all([p1, p2])
     console.log(err);
   });
 ```
+
+### async await
