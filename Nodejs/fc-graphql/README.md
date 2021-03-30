@@ -129,3 +129,7 @@ app.listen(4000, () => {
   console.log("running server port 4000");
 });
 ```
+
+### 데이터 추가
+
+- 수정 삭제 등록 post요청으로 처리 가능하지만 mutation으로 처리
