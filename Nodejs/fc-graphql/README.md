@@ -15,3 +15,34 @@ GraphQL
 
 - 스키마 작성(데이터 구조)
 - url 호출할 수 있게 작성
+
+npm install graphql
+
+### 쿼리 생성
+
+- 원하는 쿼리를 생성하여서 받아올 수 있게 만들 수 있다.
+
+```javascript
+const schema = buildSchema(`
+    type Query{
+        hello: String,
+        nodejs: Int,
+    }
+`);
+
+const root = {
+  hello: () => "hello world",
+  nodejs: () => 20,
+};
+
+graphql(schema, "{nodejs}", root).then((res) => {
+  console.log(res);
+});
+```
+
+- 타입
+
+1. int : 부호가 있는 32비트 정수
+1. float: 부호가 있는 부동소수점 값
+1. String: UTF-8 문자열
+1. Boolean : true 또는 false

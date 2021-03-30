@@ -1,10 +1,10 @@
 {
   "name": "answer",
   "version": "1.0.0",
-  "description": "",
+  "description": "REST API",
   "main": "index.js",
   "scripts": {
-    "start" : "node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,7 @@
     "apollo-server-express": "^1.4.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "graphql": "^15.3.0",
+    "graphql": "^15.5.0",
     "graphql-tools": "^6.0.12"
   }
 }
