@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    graphQL example
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    // axios
+    //    .get("http://localhost:4000/graphql", {
+    //        params: {
+    //            query: "{ getProduct(id: 1) {name price} }",
+    //        },
+    //    })
+    //    .then((result) => {
+    //        console.log(result);
+    //   });
+    axios
+        .post(`http://localhost:4000/graphql`, {
+            query: "mutation addProduct($input: ProductInput) { addProduct(input: $input) { id } }",
+            variables: {
+                input: {
+                    name: "세번째상품",
+                    price: 3000,
+                    description: "후후후"
+                },
+            },
+            operationName: null,
+        })
+        .then(function(res) {
+            console.log(res);
+        });
+</script>
+
+</html>

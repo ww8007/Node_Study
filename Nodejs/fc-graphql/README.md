@@ -142,3 +142,15 @@ app.listen(4000, () => {
 mutation에서 작성
 
 operating 연산자로 변수가 펼쳐지게 만듬
+
+### 클라이언트 사용하기
+
+스크립트로 axios 추가
+
+```javascript
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+```
+
+template문법을 사용하여도 무관함
+
+간단한 front를 axios로 해서 요청이나 처리 상황을 확인할 수 있다.
