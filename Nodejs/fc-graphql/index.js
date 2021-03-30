@@ -1,46 +1,30 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const {makeExecutableSchema} = require('graphql-tools')
-const {graphqlExpress, graphiqlExpress} = require('apollo-server-express')
+const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
+const { buildSchema } = require("graphql");
 
-const typeDefs = `
-    type Lang {
-     id: Int,
-    name: String!
+const schema = buildSchema(`
+    type Query{
+        hello: String,
+        nodejs: Int,
     }
-    type Query {
-    getLangs(name: String): [Lang]
-}
-`
-const langs = [{
-        id: 0,
-        name: 'node'
-    },{
-        id: 1,
-        name: 'python'
-    }
-]
+`);
 
-const resolvers = {
-    Query: {
-        getLangs: () => langs
-    }
-}
+const root = {
+  hello: () => "hello world",
+  nodejs: () => 20,
+};
 
-const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers
-})
-  
-const PORT = 3000;
 const app = express();
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({
-    schema
-}));
- 
-app.use('/graphiql', graphiqlExpress({
-    endpointURL: '/graphql',
-}))
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true,
+  })
+);
 
- app.listen(PORT, () => console.log(`Runnig server`));
+app.listen(4000, () => {
+  console.log("running server port 4000");
+});

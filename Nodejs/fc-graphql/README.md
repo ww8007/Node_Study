@@ -46,3 +46,15 @@ graphql(schema, "{nodejs}", root).then((res) => {
 1. float: 부호가 있는 부동소수점 값
 1. String: UTF-8 문자열
 1. Boolean : true 또는 false
+
+### Express 연동
+
+쿼리에서 연동을 바로 할 수 있게 가능
+
+npm i express express-graphql
+
+- express 설정
+  graphiql: true (gui를 설정해 준다고 보면 됨)
+  나중에 보안상의 문제를 고려하여서 gui false로 설정해주면 됨
+
+* query요청을 하게 되면 프런트에서의 요청이 조금 더 쉬워진다.
