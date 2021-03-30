@@ -58,3 +58,74 @@ npm i express express-graphql
   나중에 보안상의 문제를 고려하여서 gui false로 설정해주면 됨
 
 * query요청을 하게 되면 프런트에서의 요청이 조금 더 쉬워진다.
+
+### 데이터 조회
+
+변수를 주고 받듯이 쿼리를 주고 받는 것을 작성하는 것이 목표
+
+1. 스키마 설정
+   - type Product를 잡는 것이 우선
+     1. id: ID! (무조건 존재하여야 한다는 의미)
+     1. name: String,
+     1. price: Int
+     1. description : String 대문자인 것이 특징
+   - Query를 생성하여서 불러올 쿼리를 생성
+     getProduct(id: iD!): Product
+1. 더미 데이터 생성
+1. root에서 뿌려주기
+   - query문에 대하여 원하는 값을 찾도록 도와줌
+1. express생성
+1. app.use("/graphql", graphqlHTTP({}))
+
+```js
+const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
+const { buildSchema } = require("graphql");
+
+const schema = buildSchema(`
+    type Product {
+        id: ID!
+        name: String
+        price: Int
+        description: String
+    }
+    type Query{
+        getProduct( id : ID! ) : Product
+    }
+`);
+
+const products = [
+  {
+    id: 1,
+    name: "첫번째 데이터",
+    price: 2000,
+    description: "hi",
+  },
+  {
+    id: 2,
+    name: "두번째 데이터",
+    price: 4000,
+    description: "bye",
+  },
+];
+
+const root = {
+  getProduct: ({ id }) =>
+    products.find((proudct) => proudct.id === parseInt(id)),
+};
+
+const app = express();
+
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true,
+  })
+);
+
+app.listen(4000, () => {
+  console.log("running server port 4000");
+});
+```

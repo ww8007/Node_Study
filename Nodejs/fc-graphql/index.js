@@ -3,15 +3,35 @@ const { graphqlHTTP } = require("express-graphql");
 const { buildSchema } = require("graphql");
 
 const schema = buildSchema(`
+    type Product {
+        id: ID!
+        name: String
+        price: Int
+        description: String
+    }
     type Query{
-        hello: String,
-        nodejs: Int,
+        getProduct( id : ID! ) : Product
     }
 `);
 
+const products = [
+  {
+    id: 1,
+    name: "첫번째 데이터",
+    price: 2000,
+    description: "hi",
+  },
+  {
+    id: 2,
+    name: "두번째 데이터",
+    price: 4000,
+    description: "bye",
+  },
+];
+
 const root = {
-  hello: () => "hello world",
-  nodejs: () => 20,
+  getProduct: ({ id }) =>
+    products.find((proudct) => proudct.id === parseInt(id)),
 };
 
 const app = express();
