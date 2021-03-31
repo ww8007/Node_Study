@@ -85,3 +85,41 @@ db 호스트의 경우 rds의 endpoint를 집어넣어야한다.
 이를 pm2 start server.js로 실행을 시키게 되면 우리가 localhost:3000을 통해서 띄웠던 것과 동일하게 실행을 시킬 수 있다.
 
 websever nginx가 대신 서빙을 해주도록 하는것이 다음 목표
+
+### NGINX 설치 및 배포완료
+
+3000번 포트로 지금은 구동이 되고 있기 때문에
+이를 NGINX를 통해서 바로 연결이 될 수 있도록 함
+
+1. NGINX를 설치
+
+1. sudo vi /etc/apt/sources.list
+   내가 원하는 경로에서 받아서 설정을 하고 싶을 때 sourcelist수정을 하면됨
+
+- vi 팁
+  shift + g 를 하면 맨 밑으로 갈 수 있게 됨
+
+deb http://nginx.org/packages/ubuntu/ xenial nginx
+deb-src http://nginx.org/packages/ubuntu/ xenial nginx
+
+- sudo apt-get update 를 하면 source-list에 대한 수정 사항이 반영 된다.
+
+* sudo service nginx start
+
+* nginx 설치에 문제가 있어서 다른 블로그 참조
+  (https://coterie.tistory.com/5)
+
+* ec2 인바운드 규칙의 3000번 포트 삭제
+
+기본적인 nginx 페이지를 보여주는 것이 아닌 원하는 페이지를 띄워주는 프록시 설정을 하는 것이 마무리
+
+cd /etc/nginx
+
+sudo vi 로 열어줘서 설정해야함
+
+proxy_pass http://127.0.0.1:3000/;
+
+- 이러고 nginx를 내렷다가 올리면 됨
+  sudo service nginx reload
+
+* 이렇게 해서 소스를 배포 할 수 있다.
