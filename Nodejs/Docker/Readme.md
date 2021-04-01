@@ -84,3 +84,44 @@ docker run -d -p 80:80 --name webserver nginx
 1. docker start : 컨테이너 구동
 1. docker stop : 컨테이너 중지
 1. docker rm : 중지되어 있는 컨테이너 삭제
+
+### Dockerfile로 이미지 만들기
+
+1. Dockerfiles 생성
+1. 이미지 생성
+1. 이미지 바탕으로 컨테이너 실행
+
+- docker file
+
+```dockerfile
+# centOS 이미지를 기반으로 작성
+FROM centos:latest
+
+# 아파치를 설치
+RUN yum install -y httpd
+
+# 현재 폴더의 index.html 파일을 아파치 첫 화면으로 복사
+COPY index.html /var/www/html/
+
+# 아파치 실행
+# 컨테이너 실행 시 처음 실행되는 명령임
+# 엔트리 포인트 : 인자를 받을 수 있음
+# CMD : 인자를 받을 수 없음
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+```
+
+- 이미지 파일 만들기
+
+  - docker build -t test .
+    - 현재 위치에서 dockerfile을 기반으로 -t:test1 이렇게 태그를 달 수 도 있고
+    - 현재 위치 기반으로 도커 이미지를 생성해 준다.
+  - docker images 로 이미지가 만들어진 것을 확인
+  - docker run -d -p 80:80 test
+    만들어진 이미지 파일을 실행
+
+* 정상적으로 동작하는 지 확인
+
+  1.  docker exec -it 43b0be8ed6a7 /bin/bash
+      image 이름을 확인 하는 것
+
+* 컨테이너를 여러개 가져오면 서로 연결을 시켜야함
