@@ -125,3 +125,72 @@ CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
       image 이름을 확인 하는 것
 
 * 컨테이너를 여러개 가져오면 서로 연결을 시켜야함
+
+### Docker Compose
+
+- 컨테이너를 하나만 띄우는게 아니라 여러개 띄우면 문제가 생기게 됨
+  내리는 것도 따로 다 설정을 해줘야 하기 때문에
+
+1. 붙여넣을 파일이 많을 시
+1. 컨테이너 간의 연결관계를 설정하는 파일
+1. python 기반의 yml 확장자 사용
+
+### docker-compsoe 설치
+
+- ssh 연결
+  ssh -i mytest.pem ubuntu@aws주소
+
+* sudo 권한 부여하기
+  sudo chmod +x /usr/local/bin/docker-compose
+
+* docker compose 구성도
+
+  - 각 컨테이너 구성도
+  - node <-> mysql
+  - 3000 ---- 3306
+
+* mysql 같은 경우는 컨테이너로 하기에는 백업 옵션도 존재 하기 때문에 rds -> aws로 관리해주는 것이 좋음
+
+* yml 작성 유의
+  tab과 space과 다르게 동작하니 유의하여서 작성
+
+* .env 변수
+
+  - DB_HOST = db_url 이라고 작성을 하게 되면
+
+    - docker compose yml 에서 node의 link를 변수 처럼 사용가능하다.
+
+    ```dockerfile
+      # node 이미지를 지정
+    node:
+    build: ./node
+    restart: always
+    links:
+      - db:db_url
+      - 이부분 이다.
+    ports: :
+      - 3000:3000
+    ```
+
+### node Dockerfile 작성
+
+```dockerfile
+# node 컨테이너 기반
+FROM node
+
+
+# 작업디렉토리를 생성하고 현 소스파일들을 전체를 붙여 넣는다.
+WORKDIR /src
+ADD . /src
+
+# src 폴더로 이동한 다음에 패키지를 install 한다
+RUN cd /src && npm install
+
+# Expose port
+EXPOSE  3000
+
+RUN apt-get update && apt-get install -y netcat
+
+RUN chmod +x docker-entrypoint.sh
+ENTRYPOINT ./docker-entrypoint.sh
+```
