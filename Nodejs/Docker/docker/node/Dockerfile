@@ -12,5 +12,10 @@ RUN cd /src && npm install
 # Expose port
 EXPOSE  3000
 
-# Run app
-CMD ["node", "/src/app.js"]
+# # Run app
+# CMD ["node", "/src/app.js"]
+# netcat 설치
+RUN apt-get update && apt-get install -y netcat
+
+RUN chmod +x docker-entrypoint.sh 
+ENTRYPOINT ./docker-entrypoint.sh

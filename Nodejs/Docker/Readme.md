@@ -202,3 +202,22 @@ ENTRYPOINT ./docker-entrypoint.sh
 1. docker-compose up
 
 - 문제점 : 순서가 보장이 안됨
+
+### 컨테이너 순서
+
+netcat 설치하여서 순서를 정할 수 있음
+
+- netcat
+  nc
+
+* shell 실행권한 주기
+  chmod +x docker-entrypoint.sh
+
+* entrypoint cmd 차이
+  entrypoint는 인자를 받을 수 있고 cmd는 못받는다
+
+* netcat 설치 후 entrypoint 설정하기
+
+* nc 명령어를 사용하여서 올리기
+
+* crud 위해서는 마이그레이션이 우선
