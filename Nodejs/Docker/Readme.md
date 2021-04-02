@@ -194,3 +194,11 @@ RUN apt-get update && apt-get install -y netcat
 RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT ./docker-entrypoint.sh
 ```
+
+### docker-compose 하는 법
+
+1. filezila를 통해서 만든 docker file과 node파일을 서버에 등록한다.
+1. ubuntu서버로 접속 후 dockdr-compose build 하면 됨
+1. docker-compose up
+
+- 문제점 : 순서가 보장이 안됨
