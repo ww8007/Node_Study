@@ -72,4 +72,23 @@ docker run -p 6379:6379 redis
   - hmset fruit orange 2000 apple 1000
   * 가져 오는 것은 hmget으로 가져오면 된다. -> hmget fruit orange apple
 
-###
+### Redis Node.js
+
+Nodejs와 redis 연결하기
+
+```javascript
+const redis = require("redis");
+// 만약 외부서버를 사용한다고 하면 createClient 부분에 포트 번호와 주소를 집어넣으면 된다.
+const client = redis.createClient();
+
+client.on("error", function (error) {
+  console.error(error);
+});
+```
+
+- 모든 내용을 가져오는 방법
+  ```javascript
+  client.hgetall("fruit", (err, res) => {
+    console.log(res);
+  });
+  ```
