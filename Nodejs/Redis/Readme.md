@@ -92,3 +92,9 @@ client.on("error", function (error) {
     console.log(res);
   });
   ```
+
+### Redis 캐싱
+
+- 실무에서의 redis 사용
+  1. 캐싱
+  1. 미리 가서 적재를 해옴
