@@ -98,3 +98,50 @@ client.on("error", function (error) {
 - 실무에서의 redis 사용
   1. 캐싱
   1. 미리 가서 적재를 해옴
+
+### sequelize db 생성
+
+1. mysql.server start -> my sql 서버 시작
+1. mysql u root -p -> 비밀번호 입력
+1. create database fastcampus4 -> .env에 설정한대로 db 생서
+
+- db가 없는 경우 sync를 해줘야하 함
+  - 최초의 table이 설정 되어 있지 않은 경우
+    - return db.sequelize.sync();
+
+* 캐싱을 하는 경우
+
+  1. 글 목록이 10개 정도 잇을 정도
+  2. 글을 작성할 때 redis
+
+* npm redis에서 가져오기
+
+* 글 쓰는 부분에서 redis 설정해주기
+  stringfy로 저장을 해주는 것이 좋음
+
+* data를 집어넣고 확인하기
+  keys \*로 데이터가 들어간 것을 확인하면 된다.
+
+* 안에서 변수를 할당하여서 처리하면 작용 시점을 잡기 어렵기 때문에 Promise문법을 사용해서 설정하도록 한다.
+
+* 공식문서를 확인하면 resolve로 설정한 부분을 조금 더 편리하게 사용이 가능하도록 되어 있는게 있다.
+
+  ```javascript
+  const getAsync = (key) =>
+  // new Promise((resolve, reject) => {
+  // redisClient.get(key, (err, data) => {
+  // if (err) reject(err);
+  // if (data) {
+  // resolve(data);
+  // } else {
+  // resolve(null);
+  // }
+  // });
+  // });
+
+    const getAsync = promisify(redisClient.get).bind(redisClient);
+  ```
+
+```
+
+```
