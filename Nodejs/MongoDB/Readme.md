@@ -17,3 +17,5 @@
    |Row|Documnet|
    |Column|key / field|
    |Primary Key|ObjectID|
+
+### MongoDB Cli
