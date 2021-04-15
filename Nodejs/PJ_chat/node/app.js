@@ -15,10 +15,8 @@ const listen = require("socket.io");
 const io = listen(server);
 
 io.on("connection", (socket) => {
-  console.log("소캣 io 통신");
   socket.on("client message", (data) => {
-    console.log(data);
-    io.emit("server message", {
+    socket.broadcast.emit("server message", {
       message: data.message,
     });
   });

@@ -43,3 +43,48 @@ Node.js용 소켓 프로그래밍 지원
 1. 서버와 연결관계를 맺음
 1. 서버에 이벤트로 emit
 1. 전체 클라이언트에 메세지 전달
+
+- 기본으로 express만 설치
+
+### 서버 구성
+
+1. npm install socket.io
+1. app.listen에 변수를 하나 받음
+1. html 파일에 jquery cdn을 통해서 script 설정
+1. script로 socket io 설정
+1. script로 아래와 같이 설정만 해줘도 연결이 맺어짐
+   ```javascript
+   <script>
+       var socket = io();
+   <script>
+   ```
+
+- html 파일에서 var socket = io() 설정만 해줘도 소켓 io로 접속이 된다는 사실을 확인 가능
+- 모든 브라우저에서 접속 하면 접속 됬다고 나옴
+
+* app.js 에서 socketio를 통해서 client message라는 이벤트 명으로 명령을 받는다고 보면 됨
+
+* emit을 통해서 뿌려주는 것은 기본 상식
+
+### 채팅 보내기와 받기
+
+- 보내는건 .emit
+- 받는 건 .on
+
+io.emit -> 모든 사람에게 모두 뿌려줌
+
+- 사용자는 client message를 통해서 받음
+
+- 채팅 서버와 클라이언트가 분리 될 경우
+  - var socket = io ("도메인을 입력하면 된다.");
+
+* socket.broadcast.emit("server meassage", {
+  message: data.message,
+  })
+
+* 위는 broadcast를 사용해서 나를 제외하고 뿌려주는다는 의미이다.
+
+* 정리 io.emit -> 모든 사람에게 뿌려줌
+* socket.broadcast -> 나를 제외한 모든 사람에게 뿌려줌
+
+### 정리
