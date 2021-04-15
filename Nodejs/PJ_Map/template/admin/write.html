@@ -1,0 +1,31 @@
+{% set title = "제품 등록" %}
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+    <form action="" method="post">
+        <input type="hidden" name="geo" value="{{ apt.geo.coordinates[0] }}, {{ apt.geo.coordinates[1] }}">
+        <table class="table table-bordered">
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="name" class="form-control" value="{{ apt.name }}"/></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input type="text" name="price" class="form-control" value="{{ apt.price }}"/></td>
+            </tr>
+            <tr>
+                <th>주소</th>
+                <td>
+                    <div class="form-inline">
+                        <input type="text" name="address" class="form-control" value="{{ apt.address }}" style="width: 70%"/>
+                        <a class="btn btn-primary btn-sm btn_select" id="map_search" style="display: inline-block; ">
+                            주소 검색
+                        </a>
+                    </div>
+                    <div id="map_area" style="width:100%;height:350px; margin:10px 0 50px 0; visibility:hidden;"></div>
+                </td>
+            </tr>
+        </table>
+        <button class="btn btn-primary">작성하기</button>
+    </form>
+{% endblock %}
