@@ -28,4 +28,58 @@
         </table>
         <button class="btn btn-primary">작성하기</button>
     </form>
+<script>
+var mapContainer = new kakao.maps.Map(
+    document.getElementById("map_area"),
+    {
+        center: new kakao.maps.LatLng( 
+            {{ map_api.default.lat }} ,
+            {{ map_api.default.lng }} 
+        ), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    }
+);
+
+{# 주소와 좌표가 존재해야됨 #}
+{% if apt.address and apt.geo  %}
+$('#map_area').css('height','350px');
+mapSearchByAddess( 
+    mapContainer ,
+    '#map_area',
+    'input[name=geo]' ,   
+    $('input[name=name]') , 
+    $('input[name=address]')
+);
+{% endif %}
+
+$('#map_search').click(function(){
+    var $name = $('input[name=name]');
+    var $address = $('input[name=address]');
+
+    console.log($address.val());
+
+    if(!$name.val()){
+        alert("아파트명을 입력하세요.");
+        return false;
+    }
+
+    if(!$address.val()){
+        alert("주소를 입력하세요.");
+        return false;
+    }
+
+    $('#map_area').css('height','350px');
+    
+    mapSearchByAddess( 
+        mapContainer ,
+        '#map_area',
+        'input[name=geo]' ,   
+        $name , 
+        $address
+    );
+
+});
+
+</script>
+
 {% endblock %}

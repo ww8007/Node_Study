@@ -15,6 +15,14 @@ exports.get_apts_write = ( _ , res) => {
 
 exports.post_apts_write = ( req , res ) => {
 
+    req.body.geo = { 
+        type: 'Point', 
+        coordinates: [
+            req.body.geo.split(',')[0] ,
+            req.body.geo.split(',')[1]
+        ]
+    };
+
     models.Apts.create(req.body).then( () => {
         res.redirect('/admin/apts');
     });
@@ -34,6 +42,14 @@ exports.get_apts_edit = ( req , res ) => {
 };
 
 exports.post_apts_edit = ( req , res ) => {
+
+    req.body.geo = { 
+        type: 'Point', 
+        coordinates: [
+            req.body.geo.split(',')[0] ,
+            req.body.geo.split(',')[1]
+        ]
+    };
 
     models.Apts.update(
         req.body , 

@@ -36,6 +36,14 @@ Object.keys(db).forEach(modelName => {
     }
 });
 
+const Wkt = require('terraformer-wkt-parser')
+Sequelize.GEOMETRY.prototype._stringify = function _stringify(value, options) {
+  return 'ST_GeomFromText(' + options.escape(Wkt.convert(value)) + ')'
+}
+Sequelize.GEOGRAPHY.prototype._stringify = function _stringify(value, options) {
+  return 'ST_GeomFromText(' + options.escape(Wkt.convert(value)) + ')'
+}
+
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
