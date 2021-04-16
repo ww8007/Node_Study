@@ -29,3 +29,24 @@
    ```javascript
    const isEmpty = () => (obj.title ? true : false);
    ```
+
+### I/O와 프로그래밍 패러다임
+
+1. I/O
+   - input, output
+   - 컴퓨터 데이터 입력 출력 담당
+   - 동시성 프로그래밍 문제점을 해결하기 위한 node 출시
+   - 요청, 작업 -> 네트워크 요청에 대한 I/O가 큰 비중을 차지
+1. 비동기, 동기
+   - 동기화 -> 데이터를 일치 시키는 행동
+   - 비동기 -> 행동이 완료 될 때 까지 기다리지 않음
+     > nodejs v8 에서 비동기 작업들이 이루어지게 됨
+1. Non-blocking vs blocking
+   - blocking -> 해당 코드 블럭 완료 전까지 다른 코드 실행 x
+   - Non-blocking -> 블럭 끝날 때 까지 기다리지 않고 코드 실행
+   - Node js -> Nonblocking
+
+> NodeJs는 이벤트 주도 방식임
+
+    Thread pull 기반과는 다르게 동작
+    * call-back 방식으로 동작하는 것이 특징
