@@ -117,3 +117,35 @@ Nodejs 에서 코딩 하는 방법 2가지
     express 삭제 가능
     * global로 설치하였다면
         npm uninstall -g express
+
+### Semantic versioning
+
+- 일반적으로 npm으로 설명
+- 단순한 숫자 버저닝이 아니라 의미가 있게 체계적인 버저닝
+
+> 1.0.0 같이 3자리 Semantic versioning
+
+    일반적으로 Semantic versioning은 3자리
+
+> 일반적인 배포 (하위 호환, 하위 호환 불가가 관건)
+
+1. First Release 최초 배포
+   최초 배포의 경우 -> 1.0.0
+1. Bug Fix 되고 하위 호환이 가능한 경우
+   첫번 째 자리수만 올려줌 -> 1.0.1
+1. 하위 호환이 가능하지만 기능이 추가 된 경우
+   두번 째 자리수 올려줌 -> 1.1.0
+1. 하위 호환이 되지 않는 중요한 변화가 생겼을 경우
+   맨 앞자리를 올려줌 -> 2.0.0
+
+> Patch Release
+
+    ~1.0.4
+
+> Minor Release
+
+    ^1.0.4
+
+> Major Release
+
+    * or x
