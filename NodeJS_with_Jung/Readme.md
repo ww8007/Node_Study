@@ -179,3 +179,55 @@ auto save가 적용되어 있는 경우 nodemon이 파일의 변화를 감지하
    기본 설정을 다 해줘서 node init도 편함
 2. package.json에 script에 "start":"nodemon main.js"추가
 3. npm start
+
+### Module.exports
+
+모듈의 exports의 경우 함수, 객체, class를 외부로 내보낼 수 있음
+
+1.  두가지 이상의 함수를 exports
+
+    - 함수 명과 export 하는 이름이 같다면 edit: edit이 아닌 바로 edit으로 내보낼 수 있음
+
+    ```javascript
+    "use strict";
+
+    function edit() {}
+    function write() {}
+
+    module.exports = {
+      edit,
+      write,
+    };
+    ```
+
+2.  단일 클래스, 함수 export
+
+    ```javascript
+    "use strict";
+
+    function edit() {}
+    function write() {}
+    class update {}
+    module.exports = edit;
+    ```
+
+3.  환경설정과 같은 외부 데이터 접근 하기 위해 사용하는 경우
+
+    - js 안에서는 함수 안에서 바로 호출이 가능
+
+    * 단일 파일로 export 하는 경우 config 파일로 사용할 경우
+    * 함수를 인라인으로 바로 실행이 가능하다는 **장점**이 있음
+      ```javascript
+      "use strict";
+
+          module.exports = {
+
+          id: "",
+          token: "",
+          fn: () => {
+          console.log("this is function");
+          },
+
+      };
+
+          ```
