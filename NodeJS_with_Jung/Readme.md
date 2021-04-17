@@ -170,3 +170,12 @@ npx는 실제 운영되는 서버에서 사용되는 경우는 적지만
   - 불필요한 파일에 의해서 **무결성**이 깨지게 됨
 
 > 코드를 최소화, 의존성 최소화가 가장 중요하다.
+
+### nodemon
+
+auto save가 적용되어 있는 경우 nodemon이 파일의 변화를 감지하여서 실행을 해주는 역할을 해줌
+
+1. npm init -y
+   기본 설정을 다 해줘서 node init도 편함
+2. package.json에 script에 "start":"nodemon main.js"추가
+3. npm start
