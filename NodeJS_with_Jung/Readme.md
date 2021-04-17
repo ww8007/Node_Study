@@ -80,3 +80,40 @@ Nodejs 에서 코딩 하는 방법 2가지
 > String. + tab -> String 관련 구문 다 보여줌
 
 > 어떤 특정 객체에 대해 정보가 필요할 경우 사용
+
+### NPM
+
+- npm을 cli에서 사용하는 법
+
+> npm -v
+
+    npm 버전 확인
+    node -v 와 같은 맥락
+
+> npm install, npm i (설치 패키지 명)
+
+    npm i express
+
+> npm init
+
+    새로운 npm package 초기화
+
+> npm install express --save-dev
+
+    해당 패키지 정상 설치, package.json에 자동 추가
+
+> npm install nodemon -g
+
+    전역적으로 패키지를 설치해줌
+
+> npx -> 설치만 하는 것이 목적이 아닌 실행을 목적
+
+    목적이 어디 있느냐가 관건
+    npx create-react-app react -> react 프로젝트 생성
+    react가 실행 명령어로 동작이 가능하게 됨
+
+> npm uninstall express
+
+    express 삭제 가능
+    * global로 설치하였다면
+        npm uninstall -g express
