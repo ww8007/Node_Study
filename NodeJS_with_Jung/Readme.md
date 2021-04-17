@@ -50,3 +50,18 @@
 
     Thread pull 기반과는 다르게 동작
     * call-back 방식으로 동작하는 것이 특징
+
+### Node VS WEB
+
+- 노드와 프런트엔드에서의 웹 간의 차이점을 알아봄
+
+1. web
+   - web 같은 경우 글로벌 객체가 보인다.
+   - 크롬 브라우저 같은 경우가 하나의 윈도우
+2. Node
+   - Node의 경우에는 안보임
+   - Node의 경우 이게 백엔드가 됨
+   * package를 require를 통해 가져옴
+     bable, wepack을 통해서 설정을 하지 않는 이상 import 사용 불가
+   * winodw.location.href -> 글로벌 변수를 정의 하려면
+     최상위에 변수를 선언하면 됨 -> const, let, var
