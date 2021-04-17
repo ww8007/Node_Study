@@ -65,3 +65,18 @@
      bable, wepack을 통해서 설정을 하지 않는 이상 import 사용 불가
    * winodw.location.href -> 글로벌 변수를 정의 하려면
      최상위에 변수를 선언하면 됨 -> const, let, var
+
+### Node.js REPL
+
+Nodejs 에서 코딩 하는 방법 2가지
+
+1. 인터프리터를 통한 실시간 코딩 -> REPL
+
+- window
+  powershell -> 기반이 가장 좋음
+
+* node 그냥 실행 시키면 인터프리터로 동작
+
+> String. + tab -> String 관련 구문 다 보여줌
+
+> 어떤 특정 객체에 대해 정보가 필요할 경우 사용
