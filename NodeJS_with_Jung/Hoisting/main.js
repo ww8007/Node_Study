@@ -1,4 +1,4 @@
 say("hi");
-const hi = (word) => {
+function say(word) {
   console.log(word);
-};
+}

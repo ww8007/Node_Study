@@ -488,12 +488,13 @@ console.log(str);
 - js에서 생성 및 실행 단계가 어떻게 동작하는지에 대한
 
 > 일반적인 경우 함수를 선언하고 호출하는 것 으로 사용됨
+> Arrow Function은 사용 불가, function 구문만 사용이 가능하다.
 
 ```javascript
 say("hi");
-const hi = (word) => {
+function say(word) {
   console.log(word);
-};
+}
 ```
 
 ### IIFE
