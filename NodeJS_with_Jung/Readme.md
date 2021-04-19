@@ -316,3 +316,26 @@ const ans = arr.includes("node.js");
 
 console.log(ans);
 ```
+
+### ForEach
+
+- 기존의 for문과는 차이가 크게 없지만 가독성이 올라감
+- foreach의 경우는 비동기적으로 실행이 되지 않는 것이 중요한 점
+
+> 비동기 적으로 코드가 실행되지 않음!!!
+
+- 각각의 배열 데이터에 접근이 가능하다.
+
+* 배열을 복사할 때 에는 spread 연산자를 사용하는 것이 더 효율적 이다.
+
+```javascript
+"use strict";
+
+const arr = [1, 2, 3];
+const newArr = [];
+arr.forEach((item) => {
+  newArr.push(item);
+});
+
+console.log(newArr);
+```
