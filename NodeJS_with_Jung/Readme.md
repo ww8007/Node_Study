@@ -265,3 +265,26 @@ auto save가 적용되어 있는 경우 nodemon이 파일의 변화를 감지하
 사이트 loupe
 
 - 일반적으로 프런트앤드에서 사용하는 경우 사용하지만 이는 이벤트 루프가 일어나는 과정을 직관적으로 확인이 가능하다.
+
+### Node.js Every
+
+- 배열에서의 조건에 대해 모두다 만족하는 경우를 지칭
+
+* ture, false를 반환하게 된다.
+
+> 코드를 끝까지 돌지 않고 이외 값이 나온다면 종료하고 false 반환
+
+````js
+"use strict";
+// 1보다 큰 값만 집어넣음
+const arr = [2, 3, 4];
+
+// Object.keys
+// Object.value
+
+const isBiggerThenone = arr.every((key) => key > 1);
+
+console.log(isBiggerThenone);
+```dotnetcli
+
+````
