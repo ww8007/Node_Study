@@ -288,3 +288,31 @@ console.log(isBiggerThenone);
 ```dotnetcli
 
 ````
+
+### Find, Includes
+
+- 배열 함수는 arrow function(화살표 함수)를 통해서 key 값을 설정하면 된다.
+
+> Find
+
+    찾는 결과 값 반환(데이터가 필요한 경우)
+
+> Includes
+
+    찾는 결과 있을 경우 true, 아닐 경우 false(데이터 유무만 확인)
+
+```javascript
+"use strict";
+// find
+const arr = ["node.js", "올인원"];
+
+const res = arr.find((key) => key === "올인원");
+
+console.log(res);
+
+// include
+
+const ans = arr.includes("node.js");
+
+console.log(ans);
+```
