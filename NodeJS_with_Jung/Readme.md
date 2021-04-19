@@ -597,3 +597,39 @@ API.prototype.get = (resource) =>
     })
   );
 ```
+
+### Arrow Functions 연습문제
+
+- curried Function 현업에서 마주칠 수 있는
+
+* 쇼핑몰 운영 vip, black-Friday
+  - 할인율에 대한 코드를 작성
+  - 등급에 따른 할인율이 다름
+
+> Arrow Function 문제점
+
+    코드를 사용하는 것은 문제가 없음
+    쇼핑몰에서의 가격과, 할인율, 조건 별로 분류를 해야할 것이 많아짐
+    분기별로 나눠야하는 내용이 너무나도 많아짐
+
+> 합성함수
+
+    f(x) = x + 1
+    g(x) = x^2
+    h(x) = f(g(x))
+    대수학을 사용하여야 하는 경우 존재 -> 딥러닝
+
+> 반복되는 호출 파라미터에 대해서 쉽게 사용이 가능하다.
+
+    getDiscount = (rate) => (price) => rate * price;
+
+```javascript
+// curried Function
+// Clousre
+getDisCount = (rate) => (price) => rate * price;
+const ans = (getTenpercentOff = getDisCount(0.1));
+//price에 가격을 입력하게 되면 동일한 할인률에 대하여 모든 상품들을 적용 가능하게 됨
+getTenpercentOff(price);
+
+console.log(ans);
+```
