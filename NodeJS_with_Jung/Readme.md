@@ -521,3 +521,21 @@ function say(word) {
 // 외부로 부터 접근이 불가하게 됨
 console.log(lang);
 ```
+
+### setinterval
+
+- 특정 함수를 특정 간격으로 실행이 가능하도록 함
+
+> 뒤에 인자로 오는 시간 마다 실행이 되도록하는 것이 특징
+
+```javascript
+"use strict";
+
+setInterval(() => {
+  console.log(1);
+}, 1000);
+```
+
+### handling
+
+- try, catch 구문을 사용하여서 오류 검출
