@@ -217,7 +217,8 @@ auto save가 적용되어 있는 경우 nodemon이 파일의 변화를 감지하
 
     * 단일 파일로 export 하는 경우 config 파일로 사용할 경우
     * 함수를 인라인으로 바로 실행이 가능하다는 **장점**이 있음
-      ```javascript
+
+      ````javascript
       "use strict";
 
           module.exports = {
@@ -231,3 +232,30 @@ auto save가 적용되어 있는 경우 nodemon이 파일의 변화를 감지하
       };
 
           ```
+      ````
+
+### 이벤트 구조 자료구조
+
+1. Queue
+   - 선입선출의 구조(먼저 들어간게 먼저 나옴)
+   - FIFO(First In First Out)
+
+> push
+
+    요소를 삽입하는 행동
+
+> shift
+
+    첫번 째 요소를 제거하고 반환
+
+2. Stacl(스택)
+   - 후입선출(나중에 들어간게 먼저 나옴)
+   - LIFO(Last In Last Out)
+
+> push
+
+    요소 삽입
+
+> pop
+
+    배열에 대해서 pop을 호출 가능
