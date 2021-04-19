@@ -435,3 +435,44 @@ const res = arr.some((x) => x < 1);
 
 console.log(res);
 ```
+
+### Template String
+
+- 한 문자열 안에서 변수, 상수 통합하여 표현 가능
+
+> $표시를 사용하여서 변수를 삽입 가능
+> 함수의 인자를 Template을 통해서 호출 가능
+
+    console.log`str`
+
+> 변수를 호출할 때 $(달러표시)를 사용함
+
+```javascript
+"use strict";
+const details = "자세한 내용";
+let str = "node.js";
+str += `hi${details}`;
+
+console.log(str);
+```
+
+**Styled Component**에서 Template String을 사용함
+
+### String
+
+- 단순한 문자열에 대한 정보를 내장하고 있다.
+
+> js의 경우 string을 내장하고 있기에 마음대로 사용이 가능하다.
+
+- 3가지 조작이 가능
+  1. startWith
+  1. includes
+  1. endWith
+
+> js의 경우 unicode를 지원하기 때문에 string에 대해서 걱정하지 않아도 됨
+
+    형변환, 특수문자
+
+> 익명 문법을 사용해서 함수의 결과값을 바로 표출해 낼 수 있다.
+
+> && , || 연산자의 경우 연산자의 우선순위 순서가 존재하지 않는다.
