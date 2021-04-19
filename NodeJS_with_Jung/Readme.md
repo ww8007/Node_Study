@@ -413,3 +413,25 @@ console.log(ans);
 
     true, false를 반환함
     안에 인자가 있는지 확인 할 수 있음
+
+### some
+
+> Every와의 차이점
+
+    Every : 모든 요소에 대한 만족
+    some : 한 가지 요소라도 만족하면 true
+            최소 하나라도 만족하면 true
+
+> Arrow Function => 을 사용해서 조건을 검
+
+    const res = arr.some((x) => x < 1);
+
+```javascript
+"use strict";
+
+const arr = [1, 2, 3, 4, -1, -2];
+
+const res = arr.some((x) => x < 1);
+
+console.log(res);
+```
