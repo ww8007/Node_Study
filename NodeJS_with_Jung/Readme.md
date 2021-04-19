@@ -476,3 +476,9 @@ console.log(str);
 > 익명 문법을 사용해서 함수의 결과값을 바로 표출해 낼 수 있다.
 
 > && , || 연산자의 경우 연산자의 우선순위 순서가 존재하지 않는다.
+
+### Type Checking
+
+- typeof method를 사용할 시 쉽게 type을 체크 가능하다.
+
+> 배열의 경우 type이 object로 잡히게 된다
