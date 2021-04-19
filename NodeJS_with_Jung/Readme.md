@@ -367,4 +367,36 @@ console.log(newArr);
    console.log(Filter);
    ```
 
-###
+### Object.assign vs spread
+
+1. Assing
+   - 객체를 합쳐서 하나의 새로운 객체를 반환
+
+```javascript
+"use strict";
+
+const obj = {
+  title: "node js 패키지",
+};
+
+const newObj = {
+  name: "패스트 캠퍼스",
+};
+
+const res = Object.assign({}, obj, newObj);
+console.log(res);
+```
+
+2. spread
+   - ... 연산자를 사용해서 객체를 합성가능
+   * 새로운 객체(배열)를 반환
+     > 가독성이 좋아지는 장점이 잇음
+
+```javascript
+const ans = {
+  ...obj,
+  ...newObj,
+};
+
+console.log(ans);
+```
