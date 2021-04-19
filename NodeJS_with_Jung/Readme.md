@@ -684,3 +684,28 @@ node.green
     기존 클래스를 내보내서 다른 파일에서 사용이 가능하다.
     클래스 : 기존 모듈화된 기능들을 재활용 하는 것도 중요한 요소 중 하나
     그러기에 다시 재선언 할 필요 없이 사용할 수 있는게 extends의 목적이다.
+
+### Static Method
+
+> static
+
+    정적으로 해석 되지만 일반적으로 정적으로 읽지 않고
+    static 본질적 의미로 읽는다.
+    new 를 이용한 생성이 아닌 바로 사용이 가능하다.
+
+- 생성자를 통해서 class 초기화 되는 것은 사실이지만
+- static 함수로 생성을 하면 바로 호출이 가능
+
+```javascript
+"use strict";
+
+class test {
+  static call() {
+    console.log("static method");
+  }
+}
+
+const ans = test.call();
+```
+
+###
