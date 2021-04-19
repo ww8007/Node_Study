@@ -339,3 +339,32 @@ arr.forEach((item) => {
 
 console.log(newArr);
 ```
+
+### Map, Filter
+
+1. Map
+
+   - 새로운 배열을 반환
+
+   * Arrrow Function(화살표 함수)를 통해서 조건을 정해줄 수 있다.
+     > 모든 요소에 대해서 조건을 수행
+
+   ```javascript
+   const a = [1, 2, 3];
+
+   const b = a.map((x) => x + 1);
+
+   console.log(b);
+   ```
+
+2. Filter
+
+   - 새로운 배열을 반환
+     > 조건을 만족하는 요소만을 출력
+
+   ```javascript
+   const Filter = a.filter((x) => x > 1);
+   console.log(Filter);
+   ```
+
+###
