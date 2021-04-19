@@ -482,3 +482,22 @@ console.log(str);
 - typeof method를 사용할 시 쉽게 type을 체크 가능하다.
 
 > 배열의 경우 type이 object로 잡히게 된다
+
+### Hoisting
+
+- js에서 생성 및 실행 단계가 어떻게 동작하는지에 대한
+
+> 일반적인 경우 함수를 선언하고 호출하는 것 으로 사용됨
+
+```javascript
+say("hi");
+const hi = (word) => {
+  console.log(word);
+};
+```
+
+### IIFE
+
+> 즉시 실행 함수 표현
+
+    정의 되자 마자 즉시 실행되는 함수
