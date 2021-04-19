@@ -562,3 +562,38 @@ try {
 } catch (e) {}
 console.log("a");
 ```
+
+### Arrow Functions
+
+- lambda와 같은 개념으로 es6에서 가장 많이 사용되는 화살표 함수
+- this에 대해서 다른 scope를 가지고 있어서 불편함 해결
+
+> 명시적으로 return 이라는 키워드 없이도 반환이 가능하다.
+
+> 기존의 this의 범위와 다르게 동작함
+
+    global 객체의 this를 사용함
+
+- 아래와 같이 화살표 함수를 사용해서 간단하게 리펙토링이 가능하다.
+
+```javascript
+"use strict";
+
+const { resolve } = require("node:path");
+
+API.prototype.get = function (resource) {
+  var self = this;
+  return new Promise(function (resolve, reject) {
+    http.get(self.uri + resource, function (data) {
+      resolve(data);
+    });
+  });
+};
+
+API.prototype.get = (resource) =>
+  new Promise((resolve, reject) =>
+    http.get(this.uri + resource, (data) => {
+      resolve(data);
+    })
+  );
+```
