@@ -539,3 +539,26 @@ setInterval(() => {
 ### handling
 
 - try, catch 구문을 사용하여서 오류 검출
+
+```javascript
+"use strict";
+
+try {
+  a;
+} catch (e) {
+  console.log("Err" + e);
+}
+```
+
+> try, catch를 이용한 오류 건너뛰기 프로그램
+
+    try로 오류를 실행시키고 catch에 오류를 출력시키지 않게 되면 오류를 건너뛰어서 코드가 실행된다.
+
+```javascript
+"use strict";
+
+try {
+  a;
+} catch (e) {}
+console.log("a");
+```
