@@ -820,3 +820,26 @@ console.log(g.next());
     setTimeout -> clearTimeout
     setImmediate -> clearImmediateObj
     setInterval -> clearInterval
+
+### Event Emitter
+
+> node js
+
+    비동기적
+    이벤트 기반
+
+> Emitter
+
+    node js core 모델 중 하나
+    기본 모듈 -> npm 설치 없음(require("events"))
+    class 모델 extends 통해 기존 클래스 확장 가능
+    - static -> class 생성 할 필요 없음
+
+> Keyword
+
+    1. on
+        첫번 째로 이름 두번 째로 함수를 만들어서 call back 가능
+        아니면 Arrow Function(화살표 함수) 이용해서 바로 함수 작성 가능
+    2. emit
+        on으로 설정된 string으로 이벤트 명을 호출 가능하게 됨
+    - 정리하면 on으로 이벤트를 설정하고 emit을 통해 호출하는 개념이다.
