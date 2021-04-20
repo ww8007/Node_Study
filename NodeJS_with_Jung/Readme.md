@@ -843,3 +843,24 @@ console.log(g.next());
     2. emit
         on으로 설정된 string으로 이벤트 명을 호출 가능하게 됨
     - 정리하면 on으로 이벤트를 설정하고 emit을 통해 호출하는 개념이다.
+
+### DNS
+
+- Domain Name Sever
+
+> DNS
+
+    일반적인 웹 주소 -> www.naver.com -> 사람이 알기 쉽게 바꾸어둔 것
+    컴퓨터가 알 수 있는 주소 -> 숫자체계
+    실제 서버의 주소는 ip로 분류되어 있음
+    모든 사이트가 resolve4를 지원하지 않는 것을 유의
+
+- keyword
+  1. lookup
+     - dns.lookup('test.com', (err, add, family))
+     - 대상 서버의 url을 입력하면 ip가 나옴
+     - IPv4 -> Family : 4 IP version4
+  2. resolve4
+  3. reverse
+     - dns reverse
+     - 역방향 해결 ip 주소
