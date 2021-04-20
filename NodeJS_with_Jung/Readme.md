@@ -864,3 +864,72 @@ console.log(g.next());
   3. reverse
      - dns reverse
      - 역방향 해결 ip 주소
+
+### File System
+
+> Node js
+
+    웹 서버 생성하여 대량의 request를 처리 하는데 사용
+    하드 디스크, 원격 클라우드에 접근 하는 것은 매우 빈번한 사례
+
+- 파일을 읽고 쓰고 하는 경우에 대해 알아보는 것
+
+> File_System
+
+    require('fs')
+
+> callBack 함수
+
+    비동기 적 처리의 대표적인 예
+    결과값을 올바르게 그리고 맞는 순서를 받아오기 위한 방법 중 하나
+    고전적인 callback 방식은 가독성이 좋지 않으므로
+    Promise 형식을 사용해서 코드를 작성해 주는 것이 좋다.
+
+- Keywords
+  1. readFile
+     - readFile("string", "인코딩 방식", 화살표 함수)
+     - 인코딩 방식 기입 안할 시 기본적으로 utf-8이 됨
+  2. writeFile
+     - content가 두번 째 파라미터로 들어가는 것이 특징
+     - callback 함수에서 넘겨받을 데이터가 없으므로
+     - err에 대한 실패 여부만 확인하면 됨
+
+> require util
+
+    promisfy -> 비구조화 할당을 통해서 사용
+    const {promisfy} = require("util")
+
+> callback 함수를 promisfy를 통해 Promise로 변형
+
+    const read = promisfy(fs.readFile);
+    const write = promisfy(fs.writeFile);
+    - promisfy로 Promise로 변형하지 않는다면 await 뒤에 바로 나올 수 없다.
+
+> await 에서의 에러 처리
+
+    try, catch 구문을 사용을 사용해서 오류를 출력가능
+    console.error(e);
+
+- async를 사용해서 구문을 처리 하였다면 await을 사용해서 설정을 하면된다.
+  - return await read('test.txt');
+
+```javascript
+"use strict";
+
+const fs = require("fs");
+const { promisify } = require("util");
+
+const read = promisify(fs.readFile);
+const write = promisify(fs.writeFile);
+const wirteAndRead = async (data = "") => {
+  try {
+    await write("test.txt", data);
+    return await read("test.txt");
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const name = wirteAndRead("hi my name is jang");
+console.log(JSON.stringify(name));
+```
