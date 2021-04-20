@@ -708,4 +708,79 @@ class test {
 const ans = test.call();
 ```
 
-###
+### Destructing
+
+> 비구조화 할당
+
+    react 에서 많이 사용됨
+    const { title, value } = obj;
+
+> 배열 비구조화 할당
+
+    const [, a, b] = arr;
+    앞에 비어진 콤마는 자리수를 맞추기 위함
+    a, b 에 1,2 번 인덱스의 배열이 출력됨
+
+```javascript
+"use strict";
+
+const obj = {
+  title: "node.js",
+  value: "올인원 패키지",
+};
+
+// es6 비구조화 할당
+
+const arr = [0, 1, 2];
+const { title, value } = obj;
+const [, a, b] = arr;
+console.log(a, b);
+```
+
+### Generator 개념적 접근
+
+- async await으로 인해서 사용빈도가 줄었을 뿐 아직도 사용 빈도가 있음
+
+* 생성자라고 불리는 이유
+  1. yield 문법을 사용
+     - Generator -> 함수가 여러번 호출 될 때 다른 결과 값을 리턴함
+
+> Generator
+
+    생성하는 함수 -> 생성자
+    function *을 통해서 생성을 하게 됨
+    yield를 사용하는 것이 특징적
+    객체 안에서도 사용이 가능하다.
+
+```javascript
+"use strict";
+
+function* log() {
+  console.log(0, yield);
+  console.log(1, yield);
+  console.log(2, yield);
+}
+
+const gen = log();
+
+gen.next("zero");
+gen.next("first");
+gen.next("second");
+gen.next("hi");
+gen.next("hihi");
+
+const obj = {
+  *gen() {
+    let cnt = 0;
+    yield ++cnt;
+    yield ++cnt;
+    yield ++cnt;
+  },
+};
+
+const g = obj.gen();
+console.log(g.next());
+console.log(g.next());
+console.log(g.next());
+console.log(g.next());
+```
