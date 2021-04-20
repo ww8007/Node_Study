@@ -784,3 +784,39 @@ console.log(g.next());
 console.log(g.next());
 console.log(g.next());
 ```
+
+### Timers
+
+- nodejs 에서의 핵심 모듈 Timers
+
+> Timers
+
+    nodejs 접해보지 않았어도 빈번하게 사용
+    이벤트를 만드는 조건에서 화면, worker Thread 에서 작성가능
+    몇 초 뒤에 보이는 코드
+    별도의 셋팅 없이 사용이 가능
+    시간 : 최소 지연 시간을 뜻함
+
+- setTimeout
+  - 최소 지연 시간
+  * 대량의 thread 에서 메세지 큐가 결정을 한다.
+  * 내부적 정확한 실행 순서는 실행된 조건에서의 타이머가 몇 개 존재 하는지가 관건
+  * 3개 ~ 10개를 작성하게 되면 비동기 코드가 완료되는 시점을 polling 방식으로 검사
+  * 메모리 리소스, 네트워크등 코드 레벨에서 검사 불가한 요소들이 결정함
+
+> setImmediate
+
+    최소 지연 시간
+    setTimeout과 같은 조건이라면 그 때 그 때 다른 결과가 나오게 됨
+
+> setInterval
+
+    최소 지연 시간
+    특정 시간 간격으로 이벤트를 실행해줌
+
+> 메모리 할당 해제
+
+    상수로 화살표 함수로 만들어진 이벤트를 할당 시킨 후 해제 가능
+    setTimeout -> clearTimeout
+    setImmediate -> clearImmediateObj
+    setInterval -> clearInterval
