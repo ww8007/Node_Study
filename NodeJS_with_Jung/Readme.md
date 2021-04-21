@@ -982,3 +982,46 @@ const promise2 = new Promise((res, rej) => {
 
 Promise.race([promise1, promise2]).then((value) => console.log(value));
 ```
+
+### htttp
+
+- Node.js Core Modules
+
+- http 개념 없이 express에 들어가면 low level 문제를 해결이 어려워짐
+- socket 관점에서의 http 오류를 해결 어려움
+
+> http
+
+    Node.js http > express (low level)
+    socket 운영을 하는데 더 효율적
+
+- 파라미터
+  1. createSever(req, res)
+     - res.statusCode : 200 -> 정상적으로 작성되어서 동작을 한다는 의미
+     * res.setHeader('Content-Type', 'text/html')
+       json, xml일 경우도 있기에 어떠한 타입의 파일을 response로 보내는지에 대한 명시를 해줘야 함
+     * res.end("<div>Hello world<div>") : 보내줄 수 있는 데이터를 정해줄 수 있음
+
+### https
+
+> http
+
+    Hyper Text Protocol
+    인터넷 문서를 교환하는 프로토콜
+
+> https
+
+    ssl 보안 프로토콜 사용
+    data reqest : crud에 ssl 사용
+    암호화가 주된 차이이다.
+
+- 파라미터
+
+  1. options
+     - hostname: '도메인 이름 주소'
+     - port : 443(일반적인 포트 주소)
+     - path : '/login'(hostname 뒤에 붙는 동작을 의미)
+     - method : crud(create, read, update, delete)
+  2. response
+     - statusCode : http의 statusCode와 동일한 역할을 함
+     - 오류처리를 먼저 해주는 것이 중요함
