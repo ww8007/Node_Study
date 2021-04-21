@@ -954,3 +954,31 @@ const promise2 = new Promise((res, rej) => {
 
 Promise.all([promise, promise2]).then((value) => console.log(value));
 ```
+
+### Promise.race
+
+- all과의 차이점
+  - 가장 먼저 처리되는 Promise가 return 되는 특징이 있음
+
+* setImmediately()
+  - 매우 중요한 nodejs 함수
+
+> Promise.race
+
+    딜레이가 적은 것이 먼저 return 됨
+    resolve 함수의 파라미터가 비어 있을 경우 undefined로 나오게 되는데
+    이 것은 오류가 아님
+
+```javascript
+"use strict";
+
+const promise1 = new Promise((res, rej) => {
+  setTimeout(() => res(2000), 2000);
+});
+
+const promise2 = new Promise((res, rej) => {
+  setTimeout(() => res("즉시"), 0);
+});
+
+Promise.race([promise1, promise2]).then((value) => console.log(value));
+```
