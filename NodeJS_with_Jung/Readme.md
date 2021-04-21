@@ -933,3 +933,24 @@ const wirteAndRead = async (data = "") => {
 const name = wirteAndRead("hi my name is jang");
 console.log(JSON.stringify(name));
 ```
+
+### Promise.all
+
+- 다수의 Promise가 실행될 때 까지 기다림
+
+> Promise.all
+
+    실무에서 많이 사용
+    다양한 API 호출 하고 필터링 해서 데이터를 조합해야 할 경우
+    특정한 유저에 대한 API -> 결과를 기다려서 데이터를 조합하거나 병합하는 경우가 생김
+
+```javascript
+"use strict";
+
+const promise = new Promise((res, rej) => res("즉시 호출"));
+const promise2 = new Promise((res, rej) => {
+  setTimeout(() => res("3초 뒤 호출"), 3000);
+});
+
+Promise.all([promise, promise2]).then((value) => console.log(value));
+```
