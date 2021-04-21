@@ -1022,6 +1022,81 @@ Promise.race([promise1, promise2]).then((value) => console.log(value));
      - port : 443(일반적인 포트 주소)
      - path : '/login'(hostname 뒤에 붙는 동작을 의미)
      - method : crud(create, read, update, delete)
+     - POST, PUT, UPDATE, DELETE
   2. response
      - statusCode : http의 statusCode와 동일한 역할을 함
      - 오류처리를 먼저 해주는 것이 중요함
+     * respone에 대해서 on으로 하여 data, error를 받아올 수 있음
+  3. req.end()를 통해서 종료
+
+```javascript
+"use strict";
+
+const https = require("https");
+const options = {
+  hostname: "google.com",
+  port: 443,
+  path: "/login",
+  method: "GET",
+};
+
+const req = https.request(options, (res) => {
+  console.log(`statusCode: ${res.statusCode}`);
+
+  res.on("data", (d) => {
+    process.stdout.write(e);
+  });
+
+  req.on("error", (e) => {
+    console.log(e);
+  });
+});
+```
+
+### Class vs Prototype
+
+Prototype : 어떠한 함수나 객체 기존의 속성들을 모드 그대로 복사를 해서 새로운 함수나 객체를 말함
+
+- 화살표 함수는 this를 바인딩 할 수 없다.
+- 화살표 함수 내부의 this는 global 객체의 this이다.
+
+> Prototype
+
+    사용하기 위해서는 함수 지시어를 먼저 선언하면 됨
+    1. get : set으로써 먼저
+
+> function -> this
+
+    class의 constructor의 내부에서 this로 참조되는 객체를 본인 클래스로 할당하는 것과 같음
+
+> Hoisting
+
+    선언 전 사용이 가능하다.
+
+> Clouser(클로저)
+
+    함수가 함수내부에 함수로 정의 되어있는 것을 뜻함
+    특징 : 해당하는 함수가 함수 외부에 있는 변수에 접근 가능
+
+- 리펙토링 -> 내부적인 동작 메커니즘을 바꾸는 것이 목적
+
+- 실제 내부의 클로저를 갖는 것이 목적
+
+> Class
+
+    constructor : async(비동기적) 코드를 가질 수 없음, await 사용 불가
+    static Factory method pattern 사용하면 비동기 코드 사용이 가능하다.
+
+- constructor는 new 키워드를 통해서 생성을 할 때 에만 생성이 되므로 새로운 함수로 받을 때는 명시적으로 파라미터를 선언해야 한다.
+  ```javascript
+  setBackend(backend) {
+      this.backend = backend;
+  }
+  ```
+
+> class vs prototype
+
+    기능적으로는 차이가 없지만
+    내부적으로 퍼포먼스 향상, 모듈화, 유지보수 향상
+    prototype : 내부적으로 클로저를 가져야 하는 것이 비효율적
+    class : 실제 객체 지향 프로그래밍에 충족 됨
