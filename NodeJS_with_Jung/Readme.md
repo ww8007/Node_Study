@@ -1166,3 +1166,16 @@ function study(value1, value2) {
 const problem = new study(undefined, undefined);
 problem.func1();
 ```
+
+### TDD 프로그래밍 실무
+
+nodejs core
+
+- 지금까지 개발 된 것이 정상적으로 동작하는 것이 가장 중요한 요소
+- 다른 사람들이 본인의 코드를 수정하다가 다른 기능이 제 기능을 못하게 되는 경우가 있음
+- 기존의 기능들이 비정상적으로 동작하는 것을 integration test
+- CI 상에서 실행이 되는 것이 있고 안되는 것이 있음
+- 모든 sub system module들은 기존의 코드와 통합이 잘되는가에 대해서 필수 전재로 pull request가 됨
+- 무결성 (기존 코드와 통합)이 잘 맞는지 검사
+
+> Test는 프로그램에 있어서 중요한 요소 중 하나이다는게 결론
