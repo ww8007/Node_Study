@@ -1179,3 +1179,67 @@ nodejs core
 - 무결성 (기존 코드와 통합)이 잘 맞는지 검사
 
 > Test는 프로그램에 있어서 중요한 요소 중 하나이다는게 결론
+
+### Functional Programming - 디자인 패턴
+
+js의 멀티 패러다임 , op 객체 지향형 패러다임
+
+> 함수형 프로그래밍의 장점
+
+    Data의 단방향 흐름을 이해하는데 큰 도움
+
+1. reduce
+   - 각각의 배열의 요소를 하나하나 씩(for 문 동일) 표현 하는데 사용도 가능하지만
+   - 가독성이 좋아진다는 장점이 있다.
+   - 첫번 째 인자 : tot -> 초기 값 지정 안할 시 0으로 됨
+
+- 간결한 코드
+
+```javascript
+"use strict";
+
+const numbers = [10, 20, 30, 40];
+
+const sum = numbers.reduce((tot, val) => tot + val);
+
+console.log(sum);
+```
+
+- 간단한 평균 구하기
+
+```javascript
+"use strict";
+
+const numbers = [10, 20, 30, 40];
+
+const sum = numbers.reduce((tot, val, idx, arr) => {
+  tot += val;
+  if (idx === arr.length - 1) {
+    return tot / arr.length;
+  } else {
+    return tot;
+  }
+});
+
+console.log(sum);
+```
+
+### reduce 디자인 패턴
+
+- if 문을 통한 새로운 데이터를 저장하는 방법
+
+- reduce를 통해 만든것에 배열을 추가하면 기본값이 배열로 초기화 된다.
+- reduce를 사용하면 디자인 패턴으로
+
+```javascript
+"use strict";
+
+const numbers = [0, 1, 2, 3, 4, 5, 6];
+
+const res = numbers.reduce((tot, amt) => {
+  if (amt > 0) tot.push(amt);
+  return tot;
+}, []);
+
+console.log(res);
+```
