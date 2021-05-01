@@ -1394,3 +1394,20 @@ call back 지옥 -> Promise (체인 : 가독성 떨어짐) -> Generator
   - Computed Property : 계산되어 지는 속성
   - 명시적 네이밍과의 다른 점 : 호출되는 시점에서 동적으로 다르게 생성자를 변경가능
   - \*[Symbol.iterator]
+  - 실행 순서에 따라 값을 return하는 것이 핵심
+  - generator가 배열로 초기화 되어서 Array.from으로 받을 수 있다는게 중요!!
+
+```js
+"use strict";
+
+class Sample {
+  *[Symbol.iterator]() {
+    let cnt = 0;
+    yield ++cnt;
+  }
+}
+
+const my = new Sample();
+
+console.log(Array.from(Sample));
+```
