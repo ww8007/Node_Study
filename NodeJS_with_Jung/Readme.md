@@ -1303,3 +1303,38 @@ console.log(ans); // res ret값을 통해서 결과값을 리턴한다고 생각
      - aws 환경변수 로드
      - 싱글턴 패턴을 이용하지 않는다면 overhead가 (불필요) 발생하게 됨
    - 패턴이 단 한번만 생성된다는 점이 특성
+   - redis 기반 캐시 메니져 모드
+     - 싱글턴 패턴 사용 하지 않으면 캐시의 의미가 사라짐
+     - 캐시 : 기존의 데이터가 있는 것에 대해서 새로 생성하지 않는 것이 특징
+
+> 최초의 단일성이 보장된다는 점이 특징이다.
+
+- class를 통하여 작성하는 것이 특징
+- constructor : 생성자를 이용하여 작성한다.
+- this.\_cache -> 외부에서 접근할 필요가 없기 때문에 언더바 붙임
+- 캐시 메니져의 인스턴스는 생성자 안에서 return을 해준다.
+
+> Object.freeze
+
+    객체의 속성을 동결시킨다는 의미를 내포
+    객체 사본을 생성하는 것이 아닌 함수에 전달된 객체를 그대로 반환
+    use strict 모드를 사용할 시 아예 오류가 나게 됨
+
+- CacheManager를 싱글턴 패턴을 이용해 최초에만 생성이 되도록 하는 함수
+
+```js
+"use strict";
+
+class CacheManager {
+  constructor() {
+    if (!CacheManager.instance) {
+      this._cache = [];
+      CacheManager.instance = this;
+    }
+    return CacheManager.instance;
+  }
+}
+
+const instance = new CacheManager();
+Object.freeze(instance);
+```
