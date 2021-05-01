@@ -1229,7 +1229,8 @@ console.log(sum);
 - if 문을 통한 새로운 데이터를 저장하는 방법
 
 - reduce를 통해 만든것에 배열을 추가하면 기본값이 배열로 초기화 된다.
-- reduce를 사용하면 디자인 패턴으로
+- reduce를 사용하면 디자인 패턴으로 로직을 쉽게 작성이 가능하다.
+- for문을 사용하거나 map 메소드를 사용하는 것 보다 로직이 간단해짐.
 
 ```javascript
 "use strict";
@@ -1243,3 +1244,62 @@ const res = numbers.reduce((tot, amt) => {
 
 console.log(res);
 ```
+
+### Reduce 과제
+
+문제 : 중복되는 파일 확장자에 대해서 확장자가 몇 번 반복되어 지는지에 대하여 객체 형식으로 반환하시오.
+
+> reduce arrow Function 뒤에 붙는 배열이나 객체
+
+    res.reduce((cnt, FileType)=> {})
+    이렇게 사용하면 객체를 반환하게 된다.
+    그러므로 사용을 할 때 배열을 반환받을 것 인지 아니면 배열을 반환받을 것인지를 고려하여서 작성을 하도록 한다.
+
+> arr['이름'] = undefined
+
+    객체를 최초로 생성하게 되면 이름을 통해 객체의 멤버명을 참조할 수 있다.
+    만약 정의되어 있지 않은 객체에 대해서는 undefined를 반환하게 되는 점 기억!!!
+
+> if 문을 사용하여서 직관적으로 작성할 수 도 있지만 || 연산자를 통해서 쉽게 작성도 가능
+
+    cnt[fileType] = (cnt[fileType] || 0) + 1;
+
+- if 문 통한 작성
+
+```javascript
+"use strict";
+
+const res = ["pdf", "html", "html", "gif", "gif", "gif"];
+
+const ans = res.reduce((cnt, fileType) => {
+  if (cnt[fileType] === undefined) cnt[fileType] = 1;
+  else cnt[fileType] += 1;
+  return cnt;
+}, {});
+
+console.log(ans); // res ret값을 통해서 결과값을 리턴한다고 생각하면 됨
+```
+
+- || 연산자를 통한 작성
+
+```js
+"use strict";
+
+const res = ["pdf", "html", "html", "gif", "gif", "gif"];
+
+const ans = res.reduce((cnt, fileType) => {
+  cnt[fileType] = (cnt[fileType] || 0) + 1;
+  return cnt;
+}, {});
+
+console.log(ans); // res ret값을 통해서 결과값을 리턴한다고 생각하면 됨
+```
+
+### Node.js 디자인 패턴
+
+1. 싱글턴 패턴
+   - express 서버 빌드
+     - 초기화 과정에서 환경설정 파일 읽거나
+     - aws 환경변수 로드
+     - 싱글턴 패턴을 이용하지 않는다면 overhead가 (불필요) 발생하게 됨
+   - 패턴이 단 한번만 생성된다는 점이 특성
