@@ -1411,3 +1411,53 @@ const my = new Sample();
 
 console.log(Array.from(Sample));
 ```
+
+### class 내부 constructor 비동기 메소드
+
+> 명시적으로는 class constructor에서는 비동기 코드를 작성이 불가능 하다.
+
+- async 키워드 사용불가 -> promise, await 래핑 방법
+- db는 서버단에서 이루어지기 때문에 비동기적으로 코드가 작성되는 것은 당연함
+- querry : crud는 orm을 사용하지 않는 이상 쿼리를 통해 이루어짐
+
+> async
+
+    기본적으로 Pending상태
+    실제 함수를 return 하는 것이 아니라 pending 상태의 promise를 리턴함
+    constructor 내부에 promise가 한 번 호출이 되면 다음에는 호출이 되지 않음
+
+> Promise Cache
+
+    update가 되지 않는다.
+    최초 1회만 실행이 되어서 resolve된 값을 cache화 시킴
+    싱글턴 패턴과 동일하게 단일 최초 1회만 실행이 됨
+
+- aysnc await 또한 promise 이기 때문에 this 키워드(전역) peding 상태의 promise를 객체 변수로 할당을 하여서 최초 1회 실행이 가능하다.
+- but 반복되는 코드가 작성되기 때문에 좋지 않은 방법이다.
+- logic에는 문제는 없지만 가독성 부분이 별로임
+
+```js
+"use strict";
+
+class DatabaseManager {
+  constructor(settings) {
+    this.settings = settings;
+    this.init = init; //Promise <pending>, Promise cache : 최초에만 실행이됨
+  }
+
+  query() {
+    // Query('') Agnostic
+  }
+
+  async init() {}
+
+  async newMember() {
+    //db 연결되는 과정이 필요
+    await this.init(); // 한 번 호출이 되어 resolve 되어 cache로 변하게 되면
+    // 다시 호출이 되지 않는다.
+  }
+  async deleteMember() {
+    await this.init();
+  }
+}
+```
