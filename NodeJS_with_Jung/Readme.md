@@ -1461,3 +1461,21 @@ class DatabaseManager {
   }
 }
 ```
+
+### 비동기 패턴 3
+
+> static 함수
+
+    동기나 비동기이든 new 클래스로 선언이 되어야 사용이 가능하다.
+    초기화 되는 것을 constructor로 초기화 시키는 것이 아닌
+    static factory method pattern -> constructor의 생성자 기능을 버림
+
+- static 함수는 생성자 함수를 의존하지 않아서 이게 가능함
+- static는 생성자가 필요가 없음
+- 내, 외부에 독립적이기 때문에 constructor -> this에 접근이 불가능하다.
+
+> static factory method pattern
+
+    기존의 constructor에서 최초 클래스 생성하는 것을
+    static으로 호출을 하는 것임
+    build로 명칠을 지음

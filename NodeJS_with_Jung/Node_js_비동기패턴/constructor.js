@@ -1,9 +1,14 @@
 "use strict";
 
 class DatabaseManager {
-  constructor(settings) {
-    this.settings = settings;
-    this.init = init; //Promise <pending>, Promise cache : 최초에만 실행이됨
+  constructor() {}
+
+  static async BUILD(settings) {
+    const config = await this.init(settings);
+    // 수행하고자 하는 비동기 작업들을 여기서 실행
+    // 이 아래에서 promise에 대한 내용들을 배열로 받아주면
+    // 모든 비동기 작업에 대해서 넘겨주기가 가능하다.
+    return new DatabaseManager([Promise]);
   }
 
   query() {
@@ -12,12 +17,8 @@ class DatabaseManager {
 
   async init() {}
 
-  async newMember() {
-    //db 연결되는 과정이 필요
-    await this.init(); // 한 번 호출이 되어 resolve 되어 cache로 변하게 되면
-    // 다시 호출이 되지 않는다.
-  }
-  async deleteMember() {
-    await this.init();
-  }
+  async newMember() {}
+  async deleteMember() {}
 }
+
+const manager = DatabaseManager.BUILD(settings);
