@@ -1531,3 +1531,12 @@ co(function* () {
     1. for (const item of arr) {} 이 경우에 대해서만 비동기 코드 작성이 가능하다.
 
 - 무조건 for a of b를 이용해서 비동기 코드 사용
+
+### Race Conditions 2
+
+- 두개 이상의 데이터를 처리 하는 과정에서
+- 선결 조건이 없는 경우 경쟁 상태에 놓여짐
+
+> transaction
+
+    이체 과정에서 race conditions가 일어나면 절대 안됨
