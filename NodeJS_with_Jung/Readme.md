@@ -1479,3 +1479,21 @@ class DatabaseManager {
     기존의 constructor에서 최초 클래스 생성하는 것을
     static으로 호출을 하는 것임
     build로 명칠을 지음
+
+### co 패키지
+
+generate 함수를 래핑 하여서 손쉽게 사용이 가능하다.
+
+```js
+"use strict";
+
+const co = require("co");
+
+co(function* () {
+  const a = Promise.resolve(1);
+  const b = Promise.resolve(2);
+  const c = Promise.resolve(3);
+  const res = yield [a, b, c];
+  console.log(res);
+});
+```
