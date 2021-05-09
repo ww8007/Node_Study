@@ -1570,3 +1570,17 @@ co(function* () {
 2. 이벤트 루프 실행 순서
    - Promise는 기존의 큐가 아닌 job 큐에서 관리가 됨
    -
+
+### CPU Profiling에 대한 이해
+
+1. cpu profiling
+1. heap snapshot
+
+> cpu progiling
+
+    함수 간의 call stack의 자세한 이해
+    런타임 환경에서 코드의 실행 순서
+    어떤 함수의 실행 과정에서의 오류가 존재
+    디버깅 -> call stack 정보
+
+- Nsolid 이용
