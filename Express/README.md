@@ -87,3 +87,41 @@ async start() {
     });
   }
 ```
+
+### 정적 파일 처리
+
+- Static Files 변하지 않는 (렌더링, 뷰 제외)
+- 리소스 파일이 여기 해당(이미지, 동영상)
+- 리버스 프록시를 사용해서 제공하는 것이 메모리 관리 차원에서 좋음(Reverse Proxy)
+- 정적 파일 관리는 express로 사용하는 것은 좋지 않음!!!
+- 다만 방법론적으로 사용할 수 있다는 것을 보여주기 위함
+
+> Access-Control-Allow-Origin
+
+    어느 특정한 서버에서 접근이 가능하도록함
+
+> Access-Control-Allow-Headers
+
+    모든 헤더를 허용하는 구문
+
+> Access-Control-Allow-Methods
+
+    메소드 허용 구문
+
+- 서브 스테틱 모듈 설치
+  - npm i serve-static
+  - constructor 부분에 this.app.static = static을 사용해서 사용
+
+### REST API
+
+> REST API
+
+    CRUD 4가지 연산에 대해서 상호호환이 가능하도록 만든 프로토콜
+    Post : 새로운 메소드 생성
+    엔드 포인트, url
+    앤드포인트에 대한 모든 crate,update,delete,pathc에 대해서 만들 필요가 없다.
+    action에 대해서는 메소드만 사용하는 것이 맞는 표현
+
+> Postman
+
+    실제 환경에서는 cypress를 사용하는 것을 권장하도록 한다.
