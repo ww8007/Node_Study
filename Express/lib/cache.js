@@ -3,6 +3,9 @@
 const RedisCluster = require("redis-cluster");
 const RedisClient = require("redis");
 const config = require("./config");
+
+const {promisify} = require('util')
+
 let redis, redisSub;
 
 let subCallbacks = new Map();
@@ -31,14 +34,30 @@ async function getRedisClient(sub) {
   if  (sub) {
      reidsSub = newClient;
      newClient.on('message', (topic, message)=> {
-         //다음시간
+         if (subCallbacks.has(topic)) {
+             const callback = subCallbacks.get(topic); // 이미 캐시화 되어 있는 경우 새로운 토픽을 추가하지 않는 과정이라 생각
+             callback(message);
+         }
      }) // 이벤트 에미터 받아옴
      // 메시지 큐 사용
-    newClient.ong('error', err => {
-
+    newClient.on('error', err => {
+        console.error(err);
+        newClient.end();
     })
     
   }else {
     redis= newClient; 
 }
+    newClient.on('connect', () => {
+        console.log(`${sub} connected`)
+    })
+    newClient.on('recconect', ()=> {
+        console.log(`${sub} reconnected`)
+    })
+
+    promisify(newClient);
+}
+
+function promisifyClient (redis) {
+    redis.get = util.promisify(redis.get.bind(redis)); 
 }
