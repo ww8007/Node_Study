@@ -74,3 +74,9 @@ main();
   const html = await page.content();
   fs.writeFileSync("example.html", html);
   ```
+
+### 웹페이지의 PDF 파일 생성
+
+- page.goto("https://google.com", {waitUntill: "networkidle2"})
+  - 페이지로 이동을 하고 네트워크가 여유가 있을 때 까지 기다림
+  -
