@@ -57,3 +57,33 @@ parser, helmet등을 설치해서 사용하는 것을 권장
 
 - async start로 사용이 가능하다.
   - this.app.use(미들웨어 이름);
+
+### Custom Middlewares
+
+- 기존의 미들웨어를 사용하는 것이 아니라 직접 미들웨어를 작성하여서 사용하는 것이 목적
+- 미들웨어도 하나의 함수임을 인지하는 것이 중요!!!
+- 첫번째로는 에러 캐치를 먼저 해줘야 함
+- req : cookie session body의 정보가 모두 들어가 있음
+  - 여기서 필요한 value를 찾아서 사용하면 됨
+  - custom middle ware의 작성이 가능하다.
+
+> this.app -> express 이므로 초기화 해서 사용을 할 수 있다.
+
+```javascript
+async start() {
+    this.app.use(cookieParser());
+    this.app.use(bodyParser());
+    this.app.use(helmet());
+
+    this.app.use((err, req, res, next) => {
+      console.error("Internal error", err);
+      if (req) {
+        console.log(req); // 모든 리퀘스트를 로깅
+      }
+      if (res) {
+        console.log(res); // 모든 응답을 로깅하게 됨
+      }
+      next(); //다음 분기로 넘어갈 수 있다는 것을 알림
+    });
+  }
+```

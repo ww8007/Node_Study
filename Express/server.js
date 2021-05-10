@@ -20,6 +20,17 @@ class ApiServer extends http.Server {
     this.app.use(cookieParser());
     this.app.use(bodyParser());
     this.app.use(helmet());
+
+    this.app.use((err, req, res, next) => {
+      console.error("Internal error", err);
+      if (req) {
+        console.log(req); // 모든 리퀘스트를 로깅
+      }
+      if (res) {
+        console.log(res); // 모든 응답을 로깅하게 됨
+      }
+      next(); //다음 분기로 넘어갈 수 있다는 것을 알림
+    });
   }
 }
 
