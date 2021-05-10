@@ -125,3 +125,37 @@ async start() {
 > Postman
 
     실제 환경에서는 cypress를 사용하는 것을 권장하도록 한다.
+
+### Express 템플릿 엔진 소개
+
+> 템플릿 엔진
+
+    데이터를 받고 view를 처리하기 위한 html 페이지 리턴
+    위의 과정을 좀 더 쉽게 하기 위한 것이 템플릿 엔진
+    데이터를 적성을 하고 반복하는 과정과 템플릿 툴을 제공을 함
+
+- html 코드 작성에서 보안이나 반복에 대한 요소들을 좀 더 쉽게 처리할 수 있게 해줌
+- 템플릿 엔진을 어떤 것을 사용하는 것은 자신의 마음이다.
+
+- 일반적으로 싱글 페이지 SP -> react 기반은 단일 페이지 기반
+- contact 기반 (이메일 보내기) : 단순한 웹페이지의 경우에는 template engine을 사용하면됨
+- 최근에는 자주 사용하지 않는 다는 것을 알아두면 됨
+
+### Caching Layers
+
+캐싱 계층에 대해서 학습
+
+캐시를 관리하는 모듈
+redis
+
+- npm i redis
+- npm i redis-cluster
+  - 클라우드에서 분산 처리된 아키택쳐 사용
+
+> redis
+
+    redis에는 publiser subscribe 패턴 사용
+
+- sub, publisher
+  - pub -> 서버에서 생성
+  - 클라이언트를 생성 중이기 때문에 subsciber만 생각을 하면 됨
