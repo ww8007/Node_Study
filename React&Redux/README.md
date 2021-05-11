@@ -198,3 +198,16 @@ class Fast extends React.Component {
 ### Event handling
 
 - DOM onlcik
+
+> React에서는 camelCase 표기법을 따라서 Click이 대문자이다.
+
+> e.preventDefault();
+
+    이벤트 버블링 : 하나의 돔 객체가 내부 안에 있어 외부와 중첩
+    -> 이벤트가 중첩될 수 있음
+
+- 이벤트에 파라미터를 담아서 파리미터를 넘겨주기도 가능하다.
+
+### Key Warnings 해결 방법
+
+map 함수를 사용하여 jsx, component에서 key warnings 오류가 많이 생기게 됨
