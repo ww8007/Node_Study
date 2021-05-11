@@ -232,3 +232,20 @@ map 함수를 사용하여 jsx, component에서 key warnings 오류가 많이 �
 
     그 컴포넌트가 2개 이상이면 race condition이 일어나게 됨
     인덱스를 사용하게 되면 고유값을 잃게 될 수 있음
+
+### setState 실무 테크닉
+
+setState는 비동기 적으로 실행이 되는 것을 유의!!!
+
+- setState는 render함수 내에서 선언이 불가능하다.
+
+- render, constructor -> setState 호출 불가
+  - 그 외 모든 custom 함수에서는 사용 가능
+  - componentWillUnmount에서는 사용 불가
+
+> 실무에서 update, API
+
+    비동기 코드 이기 때문에 코드의 순서를 보장하지 않음
+    update된 setState를 보여주지 않는다.
+    이 경우 setState의 두번째 인자로 화살표 함수로 callback 함수를 선언하면
+    완료에 대한 결과를 함수로 받거나 ArrowFunction을 통해 받을 수 있다.
