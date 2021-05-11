@@ -159,3 +159,42 @@
     render, WillUnmount 에서는 사용 불가
     redering -> 비동기적이므로 결과 보장 불가
     WillUnmount -> 삭제 중 이기 때문에 사용 불가
+
+### Props vs State
+
+- React Hook의 도입으로 stateless component가 나오게 됨
+
+> props
+
+    상위 계층의 컴포넌트와의 교류
+
+> state
+
+    다른 컴포넌트와의 교류가 목적이 아닌
+    내부적 class에서의 사용이 목적임
+    constructor(생성자) 내부의 this.state에서 객체로 상태를 보존이 가능하다.
+
+- state는 객체로 초기화 됨
+- state의 형은 무엇이든 선언이 가능하다.
+- state안의 props
+  - props로 상속받은 모든 데이터를 state안에 넣을 수 있다.
+
+```javascript
+class Fast extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lang: "javscript",
+      date: new Date(),
+    };
+  }
+  render() {
+    const { lang, date } = this.state;
+    return <div>{(lang, date)}</div>;
+  }
+}
+```
+
+### Event handling
+
+- DOM onlcik
