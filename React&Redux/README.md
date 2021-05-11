@@ -134,3 +134,28 @@
   - && 연산자 사용
 
 - es6 문법을 사용하게 되면 if나 else로 작성해야하는 코드를 간단하게 리펙토링이 가능하게 된다.
+- ui 로직 리펙토링 가능
+
+### React Lifecycle
+
+- 라이프 사이클이 존재하는 경우는 클래스 기반의 react
+- render 함수를 기점으로 라이프 사이클이 존재하게 된다.
+
+> componentWillMount() : 컴포넌트 랜더링 전
+
+- render() 후
+
+> componentDidMount() : 컴포넌트 랜더링 후
+
+- js -> event driven programming
+  - 특정한 이벤트에 publisher -> subscriber 구조로 작성이 가능
+
+> componentWillUnmount() : subscription 작업이 더 이상 필요 없음
+
+        모든 로직의 코드를 여기서 초기화 시키면 된다.
+
+> this.setState : 현재 클래스의 상태를 초기화 하는 비동기 함수
+
+    render, WillUnmount 에서는 사용 불가
+    redering -> 비동기적이므로 결과 보장 불가
+    WillUnmount -> 삭제 중 이기 때문에 사용 불가
