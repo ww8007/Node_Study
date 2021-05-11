@@ -249,3 +249,28 @@ setState는 비동기 적으로 실행이 되는 것을 유의!!!
     update된 setState를 보여주지 않는다.
     이 경우 setState의 두번째 인자로 화살표 함수로 callback 함수를 선언하면
     완료에 대한 결과를 함수로 받거나 ArrowFunction을 통해 받을 수 있다.
+
+- componentDidMount 에서 this.setSate를 통해 기존의 상태를 받아올 수 있음
+- update된 값을 뒤의 callback -> ArrowFunction을 통해서 받아올 수 있음
+
+```js
+componentDidMount() {
+    this.setState({ front: "goodbye" }, () => {
+      console.log(this.state);
+    });
+  }
+```
+
+### State Hook
+
+React Hook에 대한 학습
+class 기반의 컴포넌트에 대한 단점을 해결하기 위해서 나옴
+
+- 단점
+  - 다양한 이벤트 사이클이 생기게 되면 재사용성에 문제가 생기게 됨
+  - 함수형 프로그래밍을 도입해서 이러한 문제점을 없애버림
+
+> 모든 것은 함수로 시작해서 함수로 끝남
+
+- 최상단에서 선언해야함
+- useState의 두번째 나오는 함수는 ArrowFunction을 통해 바로 선언해서 사용이 가능하다.
