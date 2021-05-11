@@ -1,14 +1,14 @@
 import React from "react";
 
 function App() {
-  const handleClick = (param) => {
-    console.log("test");
-  };
-  const newClick = (e) => {
-    e.preventDefault();
-    console.log("wrapper is clicked");
-  };
-  return <button onClick={() => handleClick("test")}>this is a button</button>;
+  const arr = [0, 1, 2];
+  return (
+    <div key>
+      {arr.map((item) => (
+        <h1 key={item}>{item}</h1>
+      ))}
+    </div>
+  );
 }
 
 export default App;
