@@ -59,6 +59,34 @@
 - 랜더링 : 클라이언트 -> 백엔드와 엮어서 nodejs에서 처리하고
 - 백엔드에서 처리하는 것이 SSR이다.
 
+### JSX 와 Fragment
+
+모든 html 코드를 -> javascript 코드로 집어넣는 과정을 말함
+
+- react hook 등장 전에는 class -> state로 관리를 함
+- stateless function
+- 모든 경우에 대해서 return 구문으로 코드를 작성
+
+> 특징
+
+    1. class -> className
+    1. camelCase : 두번째 단어에 대해서 대문자로 작성을 한다.
+    1. 모든 것들이 props에 객체로 전달이 된다.
+
+- props : customvalue의 값들이 props로 전달이 됨
+  - properties의 약자
+  - 정의 하고 싶은 모든 custom value가 props 객체로 전달!!!
+- 컴포넌트에는 모든 닫는 요소가 존재해야한다.
+
+> Fragment
+
+    jsx 컴포넌트는 하나의 부모 요소를 가져야함
+    한개의 컴포넌트로 리턴이 되어야 함
+    Fragment 등장 이전 -> span, div
+    이제는 비어있는 블락 <> </>
+
+- 컴포넌트들을 하나의 레포로 감싸서 리턴하는 역할을 Fragment로 함
+
 ### 개발 환경 설정
 
 > npm

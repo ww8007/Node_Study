@@ -1,22 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-const data = [
-  { title: "Node", value: 0 },
-  { title: "React", value: 1 },
-];
+const Head = (props) => <h1>{props.title}</h1>;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header"></header>
-      {data.map((id) => {
-        <>
-          <p key={id.value}>{id.title}</p>
-        </>;
-      })}
-    </div>
-  );
+  return <Head title="this is title"></Head>;
 }
 
 export default App;
