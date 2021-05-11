@@ -1,10 +1,23 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
 
-const Head = (props) => <h1>{props.title}</h1>;
+const Loading = () => <div>Loading</div>;
 
-function App() {
-  return <Head title="this is title"></Head>;
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    };
+  }
+  comment() {
+    const con = 1;
+    const res = con > 0 ? true : false;
+  }
+  render() {
+    const { loading } = this.state;
+
+    return <>{loading && <Loading />}</>;
+  }
 }
 
 export default App;
